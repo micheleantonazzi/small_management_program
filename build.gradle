@@ -19,12 +19,25 @@ plugins {
 
     id 'org.openjfx.javafxplugin' version '0.0.7'
 
+    id "com.github.johnrengelman.shadow" version "4.0.4"
+
 }
 
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    mavenCentral()
+
+}
+def currentOS = org.gradle.internal.os.OperatingSystem.current()
+def platform
+if (currentOS.isWindows()) {
+    platform = 'win'
+} else if (currentOS.isLinux()) {
+    platform = 'linux'
+} else if (currentOS.isMacOsX()) {
+    platform = 'mac'
 }
 
 dependencies {
@@ -37,12 +50,21 @@ dependencies {
     compile "org.aspectj:aspectjrt:1.9.2"
 
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
+
+    compile "org.openjfx:javafx-base:11:${platform}"
+    compile "org.openjfx:javafx-graphics:11:${platform}"
+    compile "org.openjfx:javafx-controls:11:${platform}"
+    compile "org.openjfx:javafx-fxml:11:${platform}"
+
 }
 
 javafx {
     modules = [ 'javafx.controls', 'javafx.fxml' ]
-    version = "11.0.2"
+    version = "11.0.1"
 }
 
+
 // Define the main class for the application
-mainClassName = 'small_management_program.Main'
+mainClassName = 'small_management_program.App'
+
+
