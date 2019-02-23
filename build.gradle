@@ -13,9 +13,11 @@ plugins {
     // Apply the application plugin to add support for building an application
     id 'application'
 
-id "io.freefair.aspectj.compile-time-weaving" version "3.1.0"
+    id "io.freefair.aspectj.compile-time-weaving" version "3.1.0"
 
     id "io.freefair.aspectj.post-compile-weaving" version "3.1.0"
+
+    id 'org.openjfx.javafxplugin' version '0.0.7'
 
 }
 
@@ -32,9 +34,14 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 
-compile "org.aspectj:aspectjrt:1.9.2"
+    compile "org.aspectj:aspectjrt:1.9.2"
 
 }
 
+javafx {
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+    version = "11.0.2"
+}
+
 // Define the main class for the application
-mainClassName = 'small_management_program.App'
+mainClassName = 'small_management_program.Main'

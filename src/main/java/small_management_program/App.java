@@ -3,6 +3,8 @@
  */
 package small_management_program;
 
+import java.util.ArrayList;
+
 public class App {
     public String getGreeting() {
         return "Hello world.";

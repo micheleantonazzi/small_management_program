@@ -7,10 +7,9 @@ import org.aspectj.lang.annotation.Before;
 @Aspect
 public class Demo {
 
-    @Before("execution(* *(..)) && !within(io.freefair.Demo) && !adviceexecution()")
+    /*@Before("!within(small_management_program.Demo)")
     public void logEnter(JoinPoint joinPoint) {
-        System.out.print(joinPoint.getStaticPart());
-        System.out.print(" -> ");
-        System.out.println(joinPoint.getSignature());
-    }
+        System.out.print("aspect");
+
+    }*/
 }
