@@ -36,6 +36,7 @@ dependencies {
 
     compile "org.aspectj:aspectjrt:1.9.2"
 
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
 }
 
 javafx {
