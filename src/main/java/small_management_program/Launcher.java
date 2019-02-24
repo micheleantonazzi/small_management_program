@@ -3,14 +3,10 @@
  */
 package small_management_program;
 
-import java.util.ArrayList;
+import small_management_program.view.View;
 
-public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
-
+public class Launcher {
     public static void main(String[] args) {
-        Main.launch(Main.class, args);
+        View.launch(View.class, args);
     }
 }
