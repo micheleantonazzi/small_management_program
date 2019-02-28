@@ -1,0 +1,11 @@
+.choice-box{
+    -fx-padding: 1;
+}
+
+.text-field{
+    -fx-padding: 3;
+}
+
+#menuItemDatabase > .label{
+    -fx-graphic: url(../images/icons/database.png);
+}
