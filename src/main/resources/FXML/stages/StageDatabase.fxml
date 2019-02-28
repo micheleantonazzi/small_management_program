@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane id="stageDatabaseContainer" prefHeight="303.0" prefWidth="484.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="small_management_program.view.stages.StageDatabaseController">
+   <children>
+      <GridPane alignment="CENTER" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" percentWidth="35.0" prefWidth="164.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="398.0" minWidth="10.0" prefWidth="303.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="TOP_LEFT" prefHeight="21.0" prefWidth="124.0" text="Indirizzo" textAlignment="RIGHT" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+            <Label text="Nome database" GridPane.rowIndex="1" />
+            <Label prefHeight="21.0" prefWidth="72.0" text="Porta" GridPane.rowIndex="2" />
+            <Label prefHeight="21.0" prefWidth="48.0" text="Utente" GridPane.rowIndex="3" />
+            <Label text="Password" GridPane.rowIndex="4" />
+            <Label text="Connessione criptata" GridPane.rowIndex="5" />
+            <TextField fx:id="textFieldAddress" GridPane.columnIndex="1" />
+            <TextField fx:id="textFieldDatabaseName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="textFieldPort" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="textFieldUser" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <PasswordField fx:id="textFieldPassword" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <CheckBox fx:id="checkBoxEncrypt" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <GridPane hgap="10.0" GridPane.columnSpan="2" GridPane.rowIndex="6">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="buttonConnection" mnemonicParsing="false" prefWidth="1000.0" text="Connessione" GridPane.columnIndex="2" />
+                  <Button fx:id="buttonSave" mnemonicParsing="false" prefWidth="1000.0" text="Salva impostazioni" GridPane.columnIndex="1" />
+                  <Button fx:id="buttonTestConnection" mnemonicParsing="false" prefWidth="1000.0" text="Test connessione" />
+               </children>
+            </GridPane>
+
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
