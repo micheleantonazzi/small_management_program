@@ -1,11 +1,18 @@
-.choice-box{
-    -fx-padding: 1;
-}
-
-.text-field{
-    -fx-padding: 3;
-}
-
-#menuItemDatabase > .label{
+/*############## MAIN VIEW ##############*/
+#mainViewContainer #menuItemDatabase > .label{
     -fx-graphic: url(../images/icons/database.png);
+}
+
+/*############## STAGE DATABASE ###############*/
+#stageDatabaseContainer #buttonConnection{
+    -fx-graphic: url(../images/icons/database-export.png);
+}
+
+#stageDatabaseContainer #buttonSave{
+    -fx-graphic: url(../images/icons/content-save-all.png);
+
+}
+
+#stageDatabaseContainer #buttonTestConnection{
+    -fx-graphic: url(../images/icons/database-search.png);
 }

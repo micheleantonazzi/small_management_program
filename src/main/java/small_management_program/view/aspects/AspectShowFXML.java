@@ -24,7 +24,10 @@ public class AspectShowFXML {
             Stage stage = new Stage();
             stage.setTitle(annotation.Tilte());
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(new Scene(fxmlLoader.getRoot()));
+            Scene scene = new Scene(fxmlLoader.getRoot());
+            scene.getStylesheets().add(this.getClass().getResource("/style/MainViewStyle.css").toString());
+            stage.setScene(scene);
+
             stage.showAndWait();
         }
         catch (IOException exception){

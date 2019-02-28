@@ -17,7 +17,7 @@ public class MainView extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/FXML/MainView.fxml"));
         primaryStage.setTitle("Small Management Program");
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(this.getClass().getResource("/style/style.css").toString());
+        scene.getStylesheets().add(this.getClass().getResource("/style/MainViewStyle.css").toString());
         primaryStage.setScene(scene);
         primaryStage.setMaximized(true);
         primaryStage.show();
