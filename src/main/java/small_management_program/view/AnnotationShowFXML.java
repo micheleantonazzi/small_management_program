@@ -4,7 +4,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ShowFXML {
+public @interface ShowFXMLAnnotation {
     public String FXMLName();
     public String Tilte();
 }
