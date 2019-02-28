@@ -15,10 +15,9 @@ public class MainView extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/FXML/MainView.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Small Management Program");
         Scene scene = new Scene(root);
         scene.getStylesheets().add(this.getClass().getResource("/style/style.css").toString());
-        primaryStage.setTitle("JavaFX and Gradle");
         primaryStage.setScene(scene);
         primaryStage.setMaximized(true);
         primaryStage.show();
