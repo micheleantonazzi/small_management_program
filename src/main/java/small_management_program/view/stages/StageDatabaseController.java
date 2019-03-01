@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import small_management_program.model.database.ConfigDatabase;
+import small_management_program.model.database.Database;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,6 +24,12 @@ public class StageDatabaseController implements Initializable {
         textFieldPort.setText(configDatabase.getPort());
         textFieldUser.setText(configDatabase.getUser());
         textFieldPassword.setText(configDatabase.getPassword());
+
+    }
+
+    public void testConnection(){
+        System.out.println(Database.getInstance().testConnection(this.textFieldAddress.getText(), this.textFieldPort.getText(),
+                this.textFieldDatabaseName.getText(), this.textFieldUser.getText(), this.textFieldPassword.getText()));
 
     }
 }

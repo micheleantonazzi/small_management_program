@@ -51,7 +51,7 @@
                <children>
                   <Button fx:id="buttonConnection" mnemonicParsing="false" prefWidth="1000.0" text="Connessione" GridPane.columnIndex="2" />
                   <Button fx:id="buttonSave" mnemonicParsing="false" prefWidth="1000.0" text="Salva impostazioni" GridPane.columnIndex="1" />
-                  <Button fx:id="buttonTestConnection" mnemonicParsing="false" prefWidth="1000.0" text="Test connessione" />
+                  <Button fx:id="buttonTestConnection" mnemonicParsing="false" onAction="#testConnection" prefWidth="1000.0" text="Test connessione" />
                </children>
             </GridPane>
 
