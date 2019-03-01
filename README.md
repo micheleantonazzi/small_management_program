@@ -19,4 +19,26 @@ This program is independent of the operating system. To run it you have to:
   gradle run
   ```
 
+## Documentation
 
+In this section are presented all UML Class Diagrams, divided by package.
+
+### small_management_program
+
+![Package small_management_program](diagrams/small_management_program.jpg)
+
+### model
+
+![Package model - Collapsed diagram](diagrams/model.png)
+
+![Package model - Complete diagram](diagrams/model-all.png)
+
+### controller
+
+![Package controller - Collapsed diagram](diagrams/controller.png)
+
+![Package controller - Complete diagram](diagrams/controller-all.png)
+
+### view
+
+![Package view - Collapsed diagram](diagrams/view.png)
