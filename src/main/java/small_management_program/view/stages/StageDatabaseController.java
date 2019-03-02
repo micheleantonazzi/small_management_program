@@ -28,8 +28,12 @@ public class StageDatabaseController implements Initializable {
     }
 
     public void testConnection(){
-        System.out.println(Database.getInstance().testConnection(this.textFieldAddress.getText(), this.textFieldPort.getText(),
-                this.textFieldDatabaseName.getText(), this.textFieldUser.getText(), this.textFieldPassword.getText()));
+        try{
+            Database.getInstance().testConnection(this.textFieldAddress.getText(), this.textFieldPort.getText(),
+                    this.textFieldDatabaseName.getText(), this.textFieldUser.getText(), this.textFieldPassword.getText());
 
+
+        }
+    catch (Exception e){}
     }
 }

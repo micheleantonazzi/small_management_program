@@ -47,15 +47,8 @@ public class Database {
         return false;
     }
 
-    public boolean testConnection (String databaseAddress, String databasePort, String databaseName, String user, String password){
-        Connection connection;
-        try {
-            connection = DriverManager.getConnection(makeUrl(databaseAddress, databasePort, databaseName), user, password);
-        }
-        catch (Exception c){
-            return false;
-        }
-        return connection == null ? false : true;
+    public void testConnection (String databaseAddress, String databasePort, String databaseName, String user, String password) throws SQLException {
+        DriverManager.getConnection(makeUrl(databaseAddress, databasePort, databaseName), user, password);
     }
 
     public boolean setConnection(String databaseAddress, String databasePort, String databaseName, String user, String password) {
