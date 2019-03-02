@@ -96,11 +96,6 @@ CREATE TABLE IF NOT EXISTS `months` (
   PRIMARY KEY (`id_month`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- L’esportazione dei dati non era selezionata.
--- Dump della struttura di vista last_billings
--- Rimozione temporanea di tabella e creazione della struttura finale della vista
-CREATE VIEW last_billings AS SELECT a.* FROM billings a JOIN (SELECT id_condo, MIN(year) year FROM billings WHERE paid = 0 GROUP BY id_condo) b ON a.id_condo = b.id_condo AND a.year = b.year;
-
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
