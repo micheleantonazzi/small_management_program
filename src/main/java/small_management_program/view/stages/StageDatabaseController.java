@@ -7,6 +7,7 @@ import small_management_program.model.database.ConfigDatabase;
 import small_management_program.model.database.Database;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class StageDatabaseController implements Initializable {
@@ -27,13 +28,9 @@ public class StageDatabaseController implements Initializable {
 
     }
 
-    public void testConnection(){
-        try{
-            Database.getInstance().testConnection(this.textFieldAddress.getText(), this.textFieldPort.getText(),
-                    this.textFieldDatabaseName.getText(), this.textFieldUser.getText(), this.textFieldPassword.getText());
-
-
-        }
-    catch (Exception e){}
+    //Exception captured by AspectShowAlerts
+    public void testConnection() throws SQLException {
+        Database.getInstance().testConnection(this.textFieldAddress.getText(), this.textFieldPort.getText(),
+                this.textFieldDatabaseName.getText(), this.textFieldUser.getText(), this.textFieldPassword.getText());
     }
 }

@@ -3,11 +3,25 @@
  */
 package small_management_program;
 
+import org.junit.Assert;
 import org.junit.Test;
+import small_management_program.model.database.ConfigDatabase;
+import small_management_program.model.database.Database;
+
+import java.sql.SQLException;
+
 import static org.junit.Assert.*;
 
 public class AppTest {
-    @Test public void testAppHasAGreeting() {
-
+    @Test()
+    public void testDatabaseTestConnection() {
+        ConfigDatabase configDatabase = ConfigDatabase.getInstance();
+        try {
+            Database.getInstance().testConnection(configDatabase.getDatabaseAddress(), configDatabase.getPort(),
+                    configDatabase.getDatabaseName(), configDatabase.getUser(), configDatabase.getPassword());
+        }
+        catch (SQLException ex){
+            fail();
+        }
     }
 }

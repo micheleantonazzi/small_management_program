@@ -1,3 +1,8 @@
 language: java
 os: linux
 jdk: oraclejdk11
+
+services:
+  - mysql
+before_install:
+  - mysql -u root --password="" < database/database.sql

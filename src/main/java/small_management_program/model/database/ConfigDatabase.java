@@ -10,13 +10,13 @@ public class ConfigDatabase {
     private final String DATABASE_ADDRESS_ID = "databaseAddress";
     private final String DATABASE_ADDRESS_DEFAULT = "localhost";
     private final String DATABASE_NAME_ID = "databaseName";
-    private final String DATABASE_NAME_DEFAULT = "test";
+    private final String DATABASE_NAME_DEFAULT = "test_db";
     private final String PORT_ID = "port";
     private final String PORT_DEFAULT = "3306";
     private final String USER_ID = "user";
     private final String USER_DEFAULT = "root";
     private final String PASSWORD_ID = "password";
-    private final String PASSWORD_DEFAULT = "root";
+    private final String PASSWORD_DEFAULT = "";
     private final String SSL_ID = "ssl";
     private final String SSL_DEFAULT = "0";
 
