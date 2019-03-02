@@ -89,15 +89,6 @@ CREATE TABLE IF NOT EXISTS `condos` (
   CONSTRAINT `condo_month` FOREIGN KEY (`month`) REFERENCES `months` (`id_month`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- L’esportazione dei dati non era selezionata.
--- Dump della struttura di vista last_billings
--- Creazione di una tabella temporanea per risolvere gli errori di dipendenza della vista
-CREATE TABLE `last_billings` (
-	`id_condo` SMALLINT(6) NOT NULL,
-	`year` YEAR NOT NULL,
-	`total` FLOAT NOT NULL,
-	`paid` TINYINT(1) NOT NULL
-) ENGINE=MyISAM;
 
 -- Dump della struttura di tabella months
 CREATE TABLE IF NOT EXISTS `months` (
@@ -108,7 +99,6 @@ CREATE TABLE IF NOT EXISTS `months` (
 -- L’esportazione dei dati non era selezionata.
 -- Dump della struttura di vista last_billings
 -- Rimozione temporanea di tabella e creazione della struttura finale della vista
-DROP TABLE IF EXISTS `last_billings`;
 CREATE VIEW last_billings AS SELECT a.* FROM billings a JOIN (SELECT id_condo, MIN(year) year FROM billings WHERE paid = 0 GROUP BY id_condo) b ON a.id_condo = b.id_condo AND a.year = b.year;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
