@@ -16,7 +16,7 @@ public class ConfigDatabase {
     private final String USER_ID = "user";
     private final String USER_DEFAULT = "root";
     private final String PASSWORD_ID = "password";
-    private final String PASSWORD_DEFAULT = "root";
+    private final String PASSWORD_DEFAULT = "";
     private final String SSL_ID = "ssl";
     private final String SSL_DEFAULT = "0";
 
