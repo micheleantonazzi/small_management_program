@@ -10,7 +10,7 @@ public class ConfigDatabase {
     private final String DATABASE_ADDRESS_ID = "databaseAddress";
     private final String DATABASE_ADDRESS_DEFAULT = "localhost";
     private final String DATABASE_NAME_ID = "databaseName";
-    private final String DATABASE_NAME_DEFAULT = "test";
+    private final String DATABASE_NAME_DEFAULT = "test_db";
     private final String PORT_ID = "port";
     private final String PORT_DEFAULT = "3306";
     private final String USER_ID = "user";
