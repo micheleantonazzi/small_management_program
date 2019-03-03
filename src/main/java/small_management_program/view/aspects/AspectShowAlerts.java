@@ -11,8 +11,11 @@ import java.sql.SQLException;
 public class AspectShowAlerts {
 
     //Test database connection
-    @Around("execution(* small_management_program.model.database.Database.testConnection(..)) &&" +
-            "cflowbelow(execution(* small_management_program.view.stages.StageDatabaseController.testConnection()))")
+    @Around("(execution(* small_management_program.model.database.Database.testConnection(..)) &&" +
+            "cflowbelow(execution(* small_management_program.view.stages.StageDatabaseController.testConnection()))) ||" +
+
+            "(execution(* small_management_program.model.database.Database.setConnection(..)) &&" +
+            "cflowbelow(execution(* small_management_program.view.stages.StageDatabaseController.connection())))")
     public Object showAlertError(ProceedingJoinPoint joinPoint){
 
         Object ret = new Object();

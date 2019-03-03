@@ -1,18 +1,25 @@
 /*############## MAIN VIEW ##############*/
+
+/*############### MODIFICA ################*/
+
+#mainViewContainer #menuItemCondos > .label{
+    -fx-graphic: url(../images/icons/home.png);
+}
+
 #mainViewContainer #menuItemDatabase > .label{
-    -fx-graphic: url(../images/icons/database.png);
+    -fx-graphic: url(../images/icons/database-settings.png);
 }
 
 /*############## STAGE DATABASE ###############*/
 #stageDatabaseContainer #buttonConnection{
-    -fx-graphic: url(../images/icons/database-export.png);
+    -fx-graphic: url(../images/icons/database-ok.png);
 }
 
-#stageDatabaseContainer #buttonSave{
-    -fx-graphic: url(../images/icons/content-save-all.png);
+#stageDatabaseContainer #buttonSaveSettings{
+    -fx-graphic: url(../images/icons/database-save-settings.png);
 
 }
 
 #stageDatabaseContainer #buttonTestConnection{
-    -fx-graphic: url(../images/icons/database-search.png);
+    -fx-graphic: url(../images/icons/database-test-connection.png);
 }

@@ -51,13 +51,8 @@ public class Database {
         DriverManager.getConnection(makeUrl(databaseAddress, databasePort, databaseName), user, password);
     }
 
-    public boolean setConnection(String databaseAddress, String databasePort, String databaseName, String user, String password) {
-        connection = null;
-        try{
-            connection = DriverManager.getConnection(makeUrl(databaseAddress, databasePort, databaseName), user, password);
-        }
-        catch (Exception e){}
-        return connection == null ? false : true;
+    public void setConnection(String databaseAddress, String databasePort, String databaseName, String user, String password) throws SQLException {
+        connection = DriverManager.getConnection(makeUrl(databaseAddress, databasePort, databaseName), user, password);
     }
 
     public void executeQuery(Query query) throws DatabaseException, SQLException {

@@ -11,9 +11,23 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
+                  <Menu mnemonicParsing="false" text="Unspecified Menu">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
               <MenuItem id="menuItemQuit" mnemonicParsing="false" onAction="#setMenuItemQuit" text="Esci" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Modifica">
+               <items>
+                  <Menu id="menuItemCondos" mnemonicParsing="false" text="Condomini">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Aggiungi condominio" />
+                    </items>
+                  </Menu>
+               </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Impostazioni">
             <items>
               <MenuItem id="menuItemDatabase" mnemonicParsing="false" onAction="#showStageDatabase" text="Database" />
