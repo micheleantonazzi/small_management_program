@@ -4,6 +4,14 @@ jdk: oraclejdk11
 
 services:
   - mysql
+  
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+      
 before_install:
   - mysql -u root --password="" < database/database.sql
   - mysql -u root --password="" test_db < database/last_billings.sql
