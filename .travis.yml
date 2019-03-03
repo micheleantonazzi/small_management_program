@@ -6,3 +6,4 @@ services:
   - mysql
 before_install:
   - mysql -u root --password="" < database/database.sql
+  - mysql -u root --password="" test_db < database/last_billings.sql
