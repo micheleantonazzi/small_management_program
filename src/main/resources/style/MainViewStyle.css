@@ -1,6 +1,8 @@
+/*############## ALL ##################*/
+
 /*############## MAIN VIEW ##############*/
 
-/*############### MODIFICA ################*/
+/*############### MODIFY ################*/
 
 #mainViewContainer #menuItemCondos > .label{
     -fx-graphic: url(../images/icons/home.png);
@@ -8,6 +10,10 @@
 
 #mainViewContainer #menuItemDatabase > .label{
     -fx-graphic: url(../images/icons/database-settings.png);
+}
+
+#mainViewContainer #menuItemAddCondo > .label{
+    -fx-graphic: url(../images/icons/add.png);
 }
 
 /*############## STAGE DATABASE ###############*/
@@ -22,4 +28,13 @@
 
 #stageDatabaseContainer #buttonTestConnection{
     -fx-graphic: url(../images/icons/database-test-connection.png);
+}
+
+/*############## STAGE ADD CONDO ###############*/
+#stageAddCondoContainer #buttonAdd{
+    -fx-graphic: url(../images/icons/add.png);
+}
+
+#stageAddCondoContainer #buttonExit{
+    -fx-graphic: url(../images/icons/exit-to-app.png);
 }
