@@ -41,7 +41,7 @@
                   <Insets />
                </GridPane.margin>
                <children>
-                  <Button id="buttonExit" fx:id="buttonExit" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="31.0" prefWidth="142.0" text="Esci">
+                  <Button id="buttonExit" fx:id="buttonExit" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#closeStage" prefHeight="31.0" prefWidth="142.0" text="Esci">
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Button>

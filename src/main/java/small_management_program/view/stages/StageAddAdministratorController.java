@@ -1,5 +1,6 @@
 package small_management_program.view.stages;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
@@ -10,4 +11,6 @@ public class StageAddAdministratorController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+    public void closeStage(ActionEvent event){}
 }

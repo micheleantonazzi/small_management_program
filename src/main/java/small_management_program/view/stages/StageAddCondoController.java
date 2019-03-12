@@ -20,7 +20,5 @@ public class StageAddCondoController implements Initializable {
 
     }
 
-    public void closeStage(ActionEvent event){
-        //((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
-    }
+    public void closeStage(ActionEvent event){}
 }
