@@ -26,9 +26,9 @@
             <Label text="Acronimo" />
             <Label text="Nome" GridPane.rowIndex="1" />
             <Label text="Cognome" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="textFieldAcronym" onKeyPressed="#checkFields" GridPane.columnIndex="1" />
+            <TextField fx:id="textFieldName" onKeyPressed="#checkFields" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="textFieldSurname" onKeyPressed="#checkFields" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <GridPane GridPane.columnSpan="2" GridPane.rowIndex="3">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -45,7 +45,7 @@
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Button>
-                  <Button id="buttonAddAdministrator" fx:id="buttonAddAdministrator" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" text="Aggiungi" GridPane.columnIndex="1">
+                  <Button id="buttonAddAdministrator" fx:id="buttonAddAdministrator" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#StageGoal" prefHeight="31.0" prefWidth="110.0" text="Aggiungi" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin></Button>
