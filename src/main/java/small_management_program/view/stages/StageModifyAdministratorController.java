@@ -97,16 +97,19 @@ public class StageModifyAdministratorController implements Initializable {
                 textFieldAcronym.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
             else
                 this.textFieldAcronym.setText(newValue.toUpperCase());
+            this.checkFields();
         });
 
         this.textFieldName.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("[a-zA-Z]+"))
                 textFieldName.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            this.checkFields();
         });
 
         this.textFieldSurname.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("[a-zA-Z]+"))
                 textFieldSurname.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            this.checkFields();
         });
 
         this.disable(true);
