@@ -4,6 +4,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.DeclareSoft;
 import small_management_program.controller.queries.Query;
+import small_management_program.model.database.DatabaseException;
 import small_management_program.view.graphicutilities.GraphicUtilities;
 
 import java.sql.SQLException;
@@ -36,17 +37,20 @@ public class AspectShowAlerts {
 
 
 
-    @Around("execution(* small_management_program.view.stages..*.StageGoal())")
+    @Around("execution(* small_management_program.view.stages..*.StageGoal*())")
     public Object showAlertStageAction(ProceedingJoinPoint joinPoint){
         Object ret = new Object();
         try{
             ret = joinPoint.proceed();
-            GraphicUtilities.getInstance().showAlertSuccess("Operazione riuscita",
-                    "Operazione eseguita con successo.");
+            //GraphicUtilities.getInstance().showAlertSuccess("Operazione riuscita",
+            //        "Operazione eseguita con successo.");
         }
-        catch (Throwable ex){
+        catch (SQLException ex){
             GraphicUtilities.getInstance().showAlertError("Operazione non riuscita",
                     ex.getMessage());
+        }
+        catch (DatabaseException ex){
+            GraphicUtilities.getInstance().showAlertError(ex);
         }
         finally {
             return ret;
