@@ -24,6 +24,10 @@
     -fx-graphic: url(../images/icons/account-plus.png);
 }
 
+#mainViewContainer #menuItemModifyAdministrator > .label{
+    -fx-graphic: url(../images/icons/account-edit.png);
+}
+
 /*############## STAGE DATABASE ###############*/
 #stageDatabaseContainer #buttonConnection{
     -fx-graphic: url(../images/icons/database-ok.png);

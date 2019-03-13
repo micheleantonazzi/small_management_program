@@ -29,5 +29,8 @@ public class MainViewController implements Initializable {
     public void showStageAddCondo(){}
 
     @AnnotationShowFXML(FXMLName = "/FXML/stages/StageAddAdministrator.fxml", Tilte = "Aggiungi Amministratore")
-    public void showStageAdministrator(){}
+    public void showStageAddAdministrator(){}
+
+    @AnnotationShowFXML(FXMLName = "/FXML/stages/StageModifyAdministrator.fxml", Tilte = "Modifica Amministratore")
+    public void showStageModifyAdministrator(){}
 }
