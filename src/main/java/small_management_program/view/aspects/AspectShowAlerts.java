@@ -3,6 +3,7 @@ package small_management_program.view.aspects;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.DeclareSoft;
+import small_management_program.controller.queries.Query;
 import small_management_program.view.graphicutilities.GraphicUtilities;
 
 import java.sql.SQLException;
@@ -27,6 +28,25 @@ public class AspectShowAlerts {
         catch (Throwable ex){
             GraphicUtilities.getInstance().showAlertError("Errore di connessione",
                     "Attenzione, impossibile stabilire una connessione con il database.");
+        }
+        finally {
+            return ret;
+        }
+    }
+
+
+
+    @Around("execution(* small_management_program.view.stages..*.StageGoal())")
+    public Object showAlertStageAction(ProceedingJoinPoint joinPoint){
+        Object ret = new Object();
+        try{
+            ret = joinPoint.proceed();
+            GraphicUtilities.getInstance().showAlertSuccess("Operazione riuscita",
+                    "Operazione eseguita con successo.");
+        }
+        catch (Throwable ex){
+            GraphicUtilities.getInstance().showAlertError("Operazione non riuscita",
+                    ex.getMessage());
         }
         finally {
             return ret;

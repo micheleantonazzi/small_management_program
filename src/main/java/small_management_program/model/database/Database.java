@@ -84,7 +84,7 @@ public class Database {
                 QueryWithError queryWithError = (QueryWithError) query;
                 statement.execute(queryWithError.rollback());
             }
-            throw exception;
+            throw query.getException();
         }
     }
 }

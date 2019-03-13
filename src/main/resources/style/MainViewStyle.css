@@ -13,7 +13,19 @@
 }
 
 #mainViewContainer #menuItemAddCondo > .label{
-    -fx-graphic: url(../images/icons/add.png);
+    -fx-graphic: url(../images/icons/home-plus.png);
+}
+
+#mainViewContainer #menuItemAdministrator > .label{
+    -fx-graphic: url(../images/icons/account.png);
+}
+
+#mainViewContainer #menuItemAddAdministrator > .label{
+    -fx-graphic: url(../images/icons/account-plus.png);
+}
+
+#mainViewContainer #menuItemModifyAdministrator > .label{
+    -fx-graphic: url(../images/icons/account-edit.png);
 }
 
 /*############## STAGE DATABASE ###############*/
@@ -32,9 +44,19 @@
 
 /*############## STAGE ADD CONDO ###############*/
 #stageAddCondoContainer #buttonAdd{
-    -fx-graphic: url(../images/icons/add.png);
+    -fx-graphic: url(../images/icons/home-plus.png);
 }
 
 #stageAddCondoContainer #buttonExit{
+    -fx-graphic: url(../images/icons/exit-to-app.png);
+}
+
+/*############## STAGE ADD ADMIN ###############*/
+
+#stageAddAdministratorContainer #buttonAddAdministrator{
+    -fx-graphic: url(../images/icons/account-plus.png);
+}
+
+#stageAddAdministratorContainer #buttonExit{
     -fx-graphic: url(../images/icons/exit-to-app.png);
 }

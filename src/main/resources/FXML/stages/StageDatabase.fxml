@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="stageDatabaseContainer" prefHeight="303.0" prefWidth="484.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="small_management_program.view.stages.StageDatabaseController">
+<AnchorPane id="stageDatabaseContainer" prefHeight="303.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="small_management_program.view.stages.StageDatabaseController">
    <children>
       <GridPane alignment="CENTER" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>

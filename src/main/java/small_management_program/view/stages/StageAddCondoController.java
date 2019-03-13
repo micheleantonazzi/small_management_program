@@ -20,8 +20,5 @@ public class StageAddCondoController implements Initializable {
 
     }
 
-    @FXML
-    public void close(ActionEvent event){
-        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
-    }
+    public void closeStage(ActionEvent event){}
 }

@@ -26,6 +26,12 @@
                       <MenuItem id="menuItemAddCondo" fx:id="menuItemAddCondo" mnemonicParsing="false" onAction="#showStageAddCondo" text="Aggiungi condominio" />
                     </items>
                   </Menu>
+                  <Menu id="menuItemAdministrator" mnemonicParsing="false" text="Amministratori">
+                    <items>
+                      <MenuItem id="menuItemAddAdministrator" fx:id="menuItemAddAdministrator" mnemonicParsing="false" onAction="#showStageAddAdministrator" text="Aggiungi Amministratore" />
+                        <MenuItem id="menuItemModifyAdministrator" mnemonicParsing="false" onAction="#showStageModifyAdministrator" text="Modifica Amministratore" />
+                    </items>
+                  </Menu>
                </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Impostazioni">
