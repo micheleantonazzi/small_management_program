@@ -60,3 +60,17 @@
 #stageAddAdministratorContainer #buttonExit{
     -fx-graphic: url(../images/icons/exit-to-app.png);
 }
+
+/*############## STAGE MODIFY ADMIN ###############*/
+
+#stageModifyAdministratorContainer #buttonModifyAdministrator{
+    -fx-graphic: url(../images/icons/account-edit.png);
+}
+
+#stageModifyAdministratorContainer #buttonDeleteAdministrator{
+    -fx-graphic: url(../images/icons/account-delete.png);
+}
+
+#stageModifyAdministratorContainer #buttonExit{
+    -fx-graphic: url(../images/icons/exit-to-app.png);
+}
