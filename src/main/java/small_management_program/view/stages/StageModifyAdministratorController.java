@@ -45,20 +45,15 @@ public class StageModifyAdministratorController implements Initializable {
     @FXML
     private Button buttonDeleteAdministrator;
 
-    @FXML
-    private Button buttonExit;
-
     public boolean checkFields(){
         boolean ret = false;
         if (textFieldAcronym.getText().length() == 2 && textFieldName.getText().length() > 0 &&
                 textFieldSurname.getText().length() > 0){
             ret = true;
             this.buttonModifyAdministrator.setDisable(false);
-            this.buttonDeleteAdministrator.setDisable(false);
 
         }
         else{
-            this.buttonDeleteAdministrator.setDisable(true);
             this.buttonModifyAdministrator.setDisable(true);
         }
 
