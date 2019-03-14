@@ -149,6 +149,9 @@ public class StageModifyAdministratorController implements Initializable {
         int id = this.choiceBoxAdministrators.getSelectionModel().getSelectedItem().hashCode();
         Database.getInstance().executeQuery(new AdministratorModify(id, this.textFieldAcronym.getText(),
                 this.textFieldName.getText(), this.textFieldSurname.getText()));
+        int index = this.choiceBoxAdministrators.getSelectionModel().getSelectedIndex();
+        this.getAdministrator();
+        this.choiceBoxAdministrators.getSelectionModel().select(index);
     }
 
     public void StageGoalDelete() throws Throwable{
