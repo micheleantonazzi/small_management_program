@@ -12,10 +12,12 @@ import small_management_program.controller.DuplicateMap;
 import small_management_program.controller.queries.QueryWithResults;
 import small_management_program.controller.queries.administrator.AdministratorDelete;
 import small_management_program.controller.queries.administrator.AdministratorGetOne;
+import small_management_program.controller.queries.administrator.AdministratorModify;
 import small_management_program.controller.queries.administrator.AdministratorSelectAll;
 import small_management_program.model.database.Database;
 
 import small_management_program.model.database.DatabaseException;
+import small_management_program.view.AnnotationShowAlertSuccess;
 import small_management_program.view.graphicutilities.ChoiceBoxItemId;
 import small_management_program.view.graphicutilities.GraphicUtilities;
 
@@ -132,8 +134,7 @@ public class StageModifyAdministratorController implements Initializable {
             this.choiceBoxAdministrators.setItems(itemsAdministrators);
         }
         catch (Throwable ex){
-            GraphicUtilities.getInstance().showAlertError("Operazione non riuscita",
-                    ex.getMessage());
+            GraphicUtilities.getInstance().showAlertError("Operazione non riuscita", ex.getMessage());
         }
     }
 
@@ -141,6 +142,13 @@ public class StageModifyAdministratorController implements Initializable {
         this.textFieldAcronym.setDisable(val);
         this.textFieldName.setDisable(val);
         this.textFieldSurname.setDisable(val);
+    }
+
+    @AnnotationShowAlertSuccess
+    public void StageGoal() throws Throwable{
+        int id = this.choiceBoxAdministrators.getSelectionModel().getSelectedItem().hashCode();
+        Database.getInstance().executeQuery(new AdministratorModify(id, this.textFieldAcronym.getText(),
+                this.textFieldName.getText(), this.textFieldSurname.getText()));
     }
 
     public void StageGoalDelete() throws Throwable{
@@ -154,7 +162,5 @@ public class StageModifyAdministratorController implements Initializable {
     }
 
     //captured by AspectCloseStage
-    public void closeStage(ActionEvent event){
-        System.out.println("exc");
-    }
+    public void closeStage(ActionEvent event){}
 }

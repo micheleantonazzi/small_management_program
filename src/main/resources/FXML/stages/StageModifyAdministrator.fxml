@@ -51,7 +51,7 @@
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin></Button>
-                  <Button id="buttonModifyAdministrator" fx:id="buttonModifyAdministrator" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Salva" GridPane.columnIndex="2">
+                  <Button id="buttonModifyAdministrator" fx:id="buttonModifyAdministrator" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#StageGoal" text="Salva" GridPane.columnIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
