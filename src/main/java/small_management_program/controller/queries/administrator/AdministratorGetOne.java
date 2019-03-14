@@ -7,7 +7,7 @@ import small_management_program.model.database.DatabaseException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AdministratorGetOne extends QueryWithResults {
+public class AdministratorGetOne extends AdministratorQueryWithResult {
 
     private int id;
 
@@ -15,20 +15,7 @@ public class AdministratorGetOne extends QueryWithResults {
         this.id = id;
     }
 
-    @Override
-    public DuplicateMap<Integer, String> getResults() {
-        ResultSet resultSet = getResultSet();
-        DuplicateMap<Integer, String> ret = new DuplicateMap<>();
-        try{
-            resultSet.next();
-            int id = resultSet.getInt(1);
-            ret.put(id, resultSet.getString(2));
-            ret.put(id, resultSet.getString(3));
-            ret.put(id, resultSet.getString(4));
-        }
-        catch (SQLException exception){}
-        return ret;
-    }
+
 
     @Override
     public String getQuery() {

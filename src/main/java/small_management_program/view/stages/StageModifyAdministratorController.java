@@ -10,10 +10,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import small_management_program.controller.DuplicateMap;
 import small_management_program.controller.queries.QueryWithResults;
-import small_management_program.controller.queries.administrator.AdministratorDelete;
-import small_management_program.controller.queries.administrator.AdministratorGetOne;
-import small_management_program.controller.queries.administrator.AdministratorModify;
-import small_management_program.controller.queries.administrator.AdministratorSelectAll;
+import small_management_program.controller.queries.administrator.*;
 import small_management_program.model.database.Database;
 
 import small_management_program.model.database.DatabaseException;
@@ -122,16 +119,9 @@ public class StageModifyAdministratorController implements Initializable {
 
     private void getAdministrator(){
         try{
-            QueryWithResults getAdministrator = new AdministratorSelectAll();
+            AdministratorQueryWithResult getAdministrator = new AdministratorSelectAll();
             Database.getInstance().executeQuery(getAdministrator);
-            DuplicateMap<Integer, String> results = getAdministrator.getResults();
-            ObservableList<ChoiceBoxItemId> itemsAdministrators = FXCollections.observableArrayList();
-            Set<Integer> administratorsIds = results.keySet();
-            for(Iterator<Integer> it = administratorsIds.iterator(); it.hasNext();){
-                int id = it.next();
-                itemsAdministrators.add(new ChoiceBoxItemId(id, results.get(id, 1) + " " + results.get(id, 2)));
-            }
-            this.choiceBoxAdministrators.setItems(itemsAdministrators);
+            this.choiceBoxAdministrators.setItems(getAdministrator.getChoiceBoxItems());
         }
         catch (Throwable ex){
             GraphicUtilities.getInstance().showAlertError("Operazione non riuscita", ex.getMessage());
