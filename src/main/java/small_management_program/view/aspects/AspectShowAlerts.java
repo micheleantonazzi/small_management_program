@@ -3,8 +3,10 @@ package small_management_program.view.aspects;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.DeclareSoft;
+import org.aspectj.lang.reflect.MethodSignature;
 import small_management_program.controller.queries.Query;
 import small_management_program.model.database.DatabaseException;
+import small_management_program.view.AnnotationShowAlertSuccess;
 import small_management_program.view.graphicutilities.GraphicUtilities;
 
 import java.sql.SQLException;
@@ -42,8 +44,11 @@ public class AspectShowAlerts {
         Object ret = new Object();
         try{
             ret = joinPoint.proceed();
-            //GraphicUtilities.getInstance().showAlertSuccess("Operazione riuscita",
-            //        "Operazione eseguita con successo.");
+
+            MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+            if (signature.getMethod().getAnnotation(AnnotationShowAlertSuccess.class) != null)
+                GraphicUtilities.getInstance().showAlertSuccess("Operazione riuscita",
+                    "Operazione eseguita con successo.");
         }
         catch (SQLException ex){
             GraphicUtilities.getInstance().showAlertError("Operazione non riuscita",
