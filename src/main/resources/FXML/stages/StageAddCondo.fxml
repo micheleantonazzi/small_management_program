@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="stageAddCondoContainer" prefHeight="400.0" prefWidth="406.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="small_management_program.view.stages.StageAddCondoController">
+<AnchorPane id="stageAddCondoContainer" prefHeight="444.0" prefWidth="406.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="small_management_program.view.stages.StageAddCondoController">
    <children>
       <GridPane layoutX="6.0" prefHeight="360.0" prefWidth="363.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>
@@ -49,7 +49,7 @@
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <ChoiceBox maxWidth="1.7976931348623157E308" prefWidth="654.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <ChoiceBox fx:id="choiceBoxAdministrators" maxWidth="1.7976931348623157E308" prefWidth="654.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></ChoiceBox>
@@ -66,7 +66,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button id="buttonAdd" fx:id="buttonAdd" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="0.0" text="Aggiungi" GridPane.columnIndex="1">
+                  <Button id="buttonAdd" fx:id="buttonAddCondo" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="0.0" text="Aggiungi" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
@@ -78,7 +78,7 @@
                   </Button>
                </children>
                <GridPane.margin>
-                  <Insets top="10.0" />
+                  <Insets bottom="5.0" top="10.0" />
                </GridPane.margin>
             </GridPane>
          </children>

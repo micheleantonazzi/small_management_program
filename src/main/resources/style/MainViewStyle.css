@@ -43,7 +43,7 @@
 }
 
 /*############## STAGE ADD CONDO ###############*/
-#stageAddCondoContainer #buttonAdd{
+#stageAddCondoContainer #buttonAddCondo{
     -fx-graphic: url(../images/icons/home-plus.png);
 }
 
