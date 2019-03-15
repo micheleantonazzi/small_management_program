@@ -53,7 +53,7 @@
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></ChoiceBox>
-            <ChoiceBox maxWidth="1.7976931348623157E308" prefWidth="660.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <ChoiceBox fx:id="choiceBoxMonths" maxWidth="1.7976931348623157E308" prefWidth="660.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></ChoiceBox>
