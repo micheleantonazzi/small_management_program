@@ -16,6 +16,10 @@
     -fx-graphic: url(../images/icons/home-plus.png);
 }
 
+#mainViewContainer #menuItemModifyCondo > .label{
+    -fx-graphic: url(../images/icons/home-modify.png);
+}
+
 #mainViewContainer #menuItemAdministrator > .label{
     -fx-graphic: url(../images/icons/account.png);
 }
@@ -48,6 +52,19 @@
 }
 
 #stageAddCondoContainer #buttonExit{
+    -fx-graphic: url(../images/icons/exit-to-app.png);
+}
+
+/*############## STAGE MODIFY CONDO ###############*/
+#stageModifyCondoContainer #buttonModifyCondo{
+    -fx-graphic: url(../images/icons/home-modify.png);
+}
+
+#stageModifyCondoContainer #buttonDeleteCondo{
+    -fx-graphic: url(../images/icons/home-delete.png);
+}
+
+#stageModifyCondoContainer #buttonExit{
     -fx-graphic: url(../images/icons/exit-to-app.png);
 }
 

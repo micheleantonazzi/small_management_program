@@ -56,9 +56,6 @@ public class StageAddCondoController implements Initializable {
     @FXML
     private Button buttonAddCondo;
 
-    @FXML
-    private Button buttonExit;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try{
