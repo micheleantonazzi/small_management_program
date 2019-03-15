@@ -1,13 +1,8 @@
 package small_management_program.controller.queries.administrator;
 
-import small_management_program.controller.DuplicateMap;
-import small_management_program.controller.queries.QueryWithResults;
 import small_management_program.model.database.DatabaseException;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-public class AdministratorGetOne extends AdministratorQueryWithResult {
+public class AdministratorGetOne extends AdministratorQueryWithResults {
 
     private int id;
 

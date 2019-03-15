@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Set;
 
-public abstract class AdministratorQueryWithResult extends QueryWithResults {
+public abstract class AdministratorQueryWithResults extends QueryWithResults {
 
     public ObservableList<ChoiceBoxItemId> getChoiceBoxItems(){
         DuplicateMap<Integer, String> results = getResults();

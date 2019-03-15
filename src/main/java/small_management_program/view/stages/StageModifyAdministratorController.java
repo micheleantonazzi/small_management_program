@@ -1,7 +1,5 @@
 package small_management_program.view.stages;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,14 +13,11 @@ import small_management_program.model.database.Database;
 
 import small_management_program.model.database.DatabaseException;
 import small_management_program.view.AnnotationShowAlertSuccess;
-import small_management_program.view.graphicutilities.ChoiceBoxItemId;
 import small_management_program.view.graphicutilities.GraphicUtilities;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.ResourceBundle;
-import java.util.Set;
 
 public class StageModifyAdministratorController implements Initializable {
 
@@ -119,7 +114,7 @@ public class StageModifyAdministratorController implements Initializable {
 
     private void getAdministrator(){
         try{
-            AdministratorQueryWithResult getAdministrator = new AdministratorSelectAll();
+            AdministratorQueryWithResults getAdministrator = new AdministratorSelectAll();
             Database.getInstance().executeQuery(getAdministrator);
             this.choiceBoxAdministrators.setItems(getAdministrator.getChoiceBoxItems());
         }

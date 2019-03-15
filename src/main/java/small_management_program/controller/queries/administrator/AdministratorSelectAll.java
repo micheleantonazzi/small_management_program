@@ -2,7 +2,7 @@ package small_management_program.controller.queries.administrator;
 
 import small_management_program.model.database.DatabaseException;
 
-public class AdministratorSelectAll extends AdministratorQueryWithResult {
+public class AdministratorSelectAll extends AdministratorQueryWithResults {
 
     @Override
     public String getQuery(){
