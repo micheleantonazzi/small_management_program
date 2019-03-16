@@ -68,7 +68,7 @@ public class StageAddAdministratorController implements Initializable {
 
     //captured by AspectShowAlerts
     @AnnotationShowAlertSuccess(message = "Nuovo amministratore creato con successo")
-    public void StageGoal() throws SQLException, DatabaseException {
+    public void stageGoal() throws SQLException, DatabaseException {
         Database.getInstance().executeQuery(new AdministratorAddNew(textFieldName.getText(), textFieldSurname.getText(),
                 textFieldAcronym.getText()));
         textFieldAcronym.setText("");

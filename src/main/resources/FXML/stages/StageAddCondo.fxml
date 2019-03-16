@@ -66,7 +66,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button id="buttonAddCondo" fx:id="buttonAddCondo" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#StageGoal" prefWidth="0.0" text="Aggiungi" GridPane.columnIndex="1">
+                  <Button id="buttonAddCondo" fx:id="buttonAddCondo" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#stageGoal" prefWidth="0.0" text="Aggiungi" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>

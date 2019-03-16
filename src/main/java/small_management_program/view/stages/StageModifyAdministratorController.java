@@ -131,7 +131,7 @@ public class StageModifyAdministratorController implements Initializable {
     }
 
     @AnnotationShowAlertSuccess(message = "Amministratore modificato con successo.")
-    public void StageGoal() throws Throwable{
+    public void stageGoal() throws Throwable{
         int id = this.choiceBoxAdministrators.getSelectionModel().getSelectedItem().hashCode();
         Database.getInstance().executeQuery(new AdministratorModify(id, this.textFieldAcronym.getText(),
                 this.textFieldName.getText(), this.textFieldSurname.getText()));
@@ -141,7 +141,7 @@ public class StageModifyAdministratorController implements Initializable {
     }
 
     @AnnotationMessageConfirmation(message = "Vuoi davvero eliminare l'amministratore selezionato?")
-    public void StageGoalDelete() throws Throwable{
+    public void stageGoalDelete() throws Throwable{
         int id = this.choiceBoxAdministrators.getSelectionModel().getSelectedItem().hashCode();
         Database.getInstance().executeQuery(new AdministratorDelete(id));
         this.textFieldName.setText("");

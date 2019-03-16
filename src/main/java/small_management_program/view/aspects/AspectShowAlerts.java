@@ -38,7 +38,7 @@ public class AspectShowAlerts {
 
 
 
-    @Around("execution(* small_management_program.view.stages..*.StageGoal*())")
+    @Around("execution(* small_management_program.view.stages..*.stageGoal*())")
     public Object showAlertStageAction(ProceedingJoinPoint joinPoint){
         Object ret = new Object();
         try{
