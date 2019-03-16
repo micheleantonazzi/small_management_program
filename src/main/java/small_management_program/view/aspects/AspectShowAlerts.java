@@ -2,11 +2,10 @@ package small_management_program.view.aspects;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.aspectj.lang.reflect.DeclareSoft;
 import org.aspectj.lang.reflect.MethodSignature;
-import small_management_program.controller.queries.Query;
 import small_management_program.model.database.DatabaseException;
-import small_management_program.view.AnnotationShowAlertSuccess;
+import small_management_program.view.annotation.AnnotationMessageConfirmation;
+import small_management_program.view.annotation.AnnotationShowAlertSuccess;
 import small_management_program.view.graphicutilities.GraphicUtilities;
 
 import java.sql.SQLException;
@@ -43,13 +42,17 @@ public class AspectShowAlerts {
     public Object showAlertStageAction(ProceedingJoinPoint joinPoint){
         Object ret = new Object();
         try{
-            ret = joinPoint.proceed();
-
             MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-            AnnotationShowAlertSuccess annotationShowAlertSuccess = signature.getMethod().getAnnotation(AnnotationShowAlertSuccess.class);
-            if (annotationShowAlertSuccess != null)
-                GraphicUtilities.getInstance().showAlertSuccess("Operazione riuscita",
-                    annotationShowAlertSuccess.message());
+            AnnotationMessageConfirmation annotationMessageConfirmation = signature.getMethod().getAnnotation(AnnotationMessageConfirmation.class);
+            if((annotationMessageConfirmation != null &&
+                    GraphicUtilities.getInstance().showAlertConfirmationDelete("Conferma eliminazione", annotationMessageConfirmation.message()))
+                    ||annotationMessageConfirmation == null){
+                ret = joinPoint.proceed();
+                AnnotationShowAlertSuccess annotationShowAlertSuccess = signature.getMethod().getAnnotation(AnnotationShowAlertSuccess.class);
+                if (annotationShowAlertSuccess != null)
+                    GraphicUtilities.getInstance().showAlertSuccess("Operazione riuscita",
+                            annotationShowAlertSuccess.message());
+            }
         }
         catch (SQLException ex){
 
