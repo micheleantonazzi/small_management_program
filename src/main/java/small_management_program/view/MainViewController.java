@@ -4,7 +4,12 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import small_management_program.controller.left.TreeViewSubject;
 import small_management_program.view.annotation.AnnotationShowFXML;
+import small_management_program.view.left.ChoiceBoxTreeView;
+import small_management_program.view.left.TreeViewObserver;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,11 +17,18 @@ import java.util.ResourceBundle;
 public class MainViewController implements Initializable {
 
     @FXML
+    private VBox vBoxLeft;
+    @FXML
     MenuItem menuItemQuit;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.vBoxLeft.getChildren().add(ChoiceBoxTreeView.getInstance());
 
+        TreeViewObserver treeViewObserver = TreeViewObserver.getInstance();
+        TreeViewSubject.getInstance().attach(treeViewObserver);
+        this.vBoxLeft.getChildren().add(treeViewObserver);
+        this.vBoxLeft.setVgrow(treeViewObserver, Priority.ALWAYS);
     }
 
     public void setMenuItemQuit(){

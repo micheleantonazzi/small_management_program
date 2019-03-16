@@ -5,24 +5,28 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
-//import small_management_program.controller.left.TreeViewSubject;
+//import small_management_program.controller.left.TreeViewObserver;
 //import small_management_program.controller.left.itemstrategy.TreeViewItemAllCondo;
 //import small_management_program.controller.left.itemstrategy.TreeViewItemMonths;
 //import small_management_program.controller.left.itemstrategy.TreeViewItemMonthsCondos;
+import small_management_program.controller.left.TreeViewSubject;
+import small_management_program.controller.left.itemstrategy.TreeViewItemAllCondo;
 import small_management_program.view.Command;
 
 public class ChoiceBoxTreeView extends ChoiceBox{
 
-    private ChoiceBoxTreeView instance = null;
+    private static ChoiceBoxTreeView instance = null;
 
     private ObservableList<Command> items = FXCollections.observableArrayList();
 
-    public ChoiceBoxTreeView getInstance(){
-        if (this.instance == null)
-            this.instance = new ChoiceBoxTreeView();
-        return this.instance;
+    public static ChoiceBoxTreeView getInstance(){
+        if (instance == null)
+            instance = new ChoiceBoxTreeView();
+        return instance;
     }
-    /*private ChoiceBoxTreeView(){
+
+    private ChoiceBoxTreeView(){
+        this.setPrefWidth(Double.POSITIVE_INFINITY);
         items.add(new ItemViewAllCondos());
         //items.add(new ItemViewMonths());
         //items.add(new ItemViewMonthsCondos());
@@ -33,11 +37,11 @@ public class ChoiceBoxTreeView extends ChoiceBox{
                 newCommand.execute();
             }
         });
-    }*/
+    }
 
     //------------------- COMMAND -------------//
 
-    /*private class ItemViewAllCondos implements Command{
+    private class ItemViewAllCondos implements Command{
 
         @Override
         public String toString(){
@@ -46,10 +50,10 @@ public class ChoiceBoxTreeView extends ChoiceBox{
 
         @Override
         public void execute(){
-            ControllerFacade.getInstance().setTreeViewItemStrategy(new TreeViewItemAllCondo());
+            TreeViewSubject.getInstance().setItemStrategy(new TreeViewItemAllCondo());
         }
     }
-    */
+
     /*private class ItemViewMonths implements Command{
 
         @Override

@@ -7,6 +7,7 @@ import small_management_program.controller.parameters.WhereParameters;
 import small_management_program.model.database.DatabaseException;
 import small_management_program.view.graphicutilities.GraphicUtilities;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public abstract class Subject{
@@ -39,7 +40,7 @@ public abstract class Subject{
         return FXCollections.observableArrayList();
     }
 
-    public TreeItem getTreeViewItems() throws DatabaseException, UpdateException{
+    public TreeItem getTreeViewItems() throws DatabaseException, SQLException {
         return new TreeItem();
     }
 }
