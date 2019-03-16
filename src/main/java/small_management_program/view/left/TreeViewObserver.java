@@ -21,13 +21,7 @@ public class TreeViewObserver extends TreeView implements Observer {
     }
 
     @Override
-    public void update(Subject subject) throws DatabaseException {
-        try{
-            this.setRoot(subject.getTreeViewItems());
-        }
-
-        catch (SQLException ex){ }
-
-
+    public void update(Subject subject) throws DatabaseException, SQLException {
+        this.setRoot(subject.getTreeViewItems());
     }
 }

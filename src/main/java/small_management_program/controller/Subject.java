@@ -21,6 +21,9 @@ public abstract class Subject{
             catch (DatabaseException exception){
                 GraphicUtilities.getInstance().showAlertError(exception);
             }
+            catch (SQLException exception){
+                GraphicUtilities.getInstance().showAlertError("Operazione non riuscita", exception.getMessage());
+            }
         }
     }
 
