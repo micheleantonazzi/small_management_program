@@ -1,4 +1,4 @@
-package small_management_program.view;
+package small_management_program.view.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
