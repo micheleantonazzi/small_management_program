@@ -6,17 +6,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
-import small_management_program.controller.queries.QueryWithResults;
 import small_management_program.controller.queries.administrator.AdministratorQueryWithResults;
 import small_management_program.controller.queries.administrator.AdministratorSelectAll;
 import small_management_program.controller.queries.condo.CondoAddNew;
 import small_management_program.model.Months;
 import small_management_program.model.database.Database;
 import small_management_program.model.database.DatabaseException;
-import small_management_program.view.AnnotationShowAlertSuccess;
+import small_management_program.view.annotation.AnnotationShowAlertSuccess;
 import small_management_program.view.graphicutilities.GraphicUtilities;
 
-import javax.xml.crypto.Data;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;

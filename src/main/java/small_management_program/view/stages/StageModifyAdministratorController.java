@@ -12,7 +12,8 @@ import small_management_program.controller.queries.administrator.*;
 import small_management_program.model.database.Database;
 
 import small_management_program.model.database.DatabaseException;
-import small_management_program.view.AnnotationShowAlertSuccess;
+import small_management_program.view.annotation.AnnotationMessageConfirmation;
+import small_management_program.view.annotation.AnnotationShowAlertSuccess;
 import small_management_program.view.graphicutilities.GraphicUtilities;
 
 import java.net.URL;
@@ -139,6 +140,7 @@ public class StageModifyAdministratorController implements Initializable {
         this.choiceBoxAdministrators.getSelectionModel().select(index);
     }
 
+    @AnnotationMessageConfirmation(message = "Vuoi davvero eliminare l'amministratore?")
     public void StageGoalDelete() throws Throwable{
         int id = this.choiceBoxAdministrators.getSelectionModel().getSelectedItem().hashCode();
         Database.getInstance().executeQuery(new AdministratorDelete(id));
