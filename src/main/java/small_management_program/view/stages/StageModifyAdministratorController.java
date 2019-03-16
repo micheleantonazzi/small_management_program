@@ -129,7 +129,7 @@ public class StageModifyAdministratorController implements Initializable {
         this.textFieldSurname.setDisable(val);
     }
 
-    @AnnotationShowAlertSuccess
+    @AnnotationShowAlertSuccess(message = "Amministratore modificato con successo.")
     public void StageGoal() throws Throwable{
         int id = this.choiceBoxAdministrators.getSelectionModel().getSelectedItem().hashCode();
         Database.getInstance().executeQuery(new AdministratorModify(id, this.textFieldAcronym.getText(),

@@ -135,7 +135,7 @@ public class StageAddCondoController implements Initializable {
         return ret;
     }
 
-    @AnnotationShowAlertSuccess
+    @AnnotationShowAlertSuccess(message = "Nuovo condominio creato con successo.")
     public void StageGoal() throws Throwable{
         Database.getInstance().executeQuery(new CondoAddNew(Integer.valueOf(this.textFieldId.getText()), this.textFieldCode.getText(),
                 this.choiceBoxAdministrators.getSelectionModel().getSelectedItem().hashCode(), this.choiceBoxMonths.getSelectionModel().getSelectedItem().hashCode(),

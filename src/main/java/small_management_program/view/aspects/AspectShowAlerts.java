@@ -46,11 +46,13 @@ public class AspectShowAlerts {
             ret = joinPoint.proceed();
 
             MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-            if (signature.getMethod().getAnnotation(AnnotationShowAlertSuccess.class) != null)
+            AnnotationShowAlertSuccess annotationShowAlertSuccess = signature.getMethod().getAnnotation(AnnotationShowAlertSuccess.class);
+            if (annotationShowAlertSuccess != null)
                 GraphicUtilities.getInstance().showAlertSuccess("Operazione riuscita",
-                    "Operazione eseguita con successo.");
+                    annotationShowAlertSuccess.message());
         }
         catch (SQLException ex){
+
             GraphicUtilities.getInstance().showAlertError("Operazione non riuscita",
                     ex.getMessage());
         }

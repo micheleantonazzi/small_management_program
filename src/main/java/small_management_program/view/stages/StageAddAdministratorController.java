@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import small_management_program.controller.queries.administrator.AdministratorAddNew;
 import small_management_program.model.database.Database;
 import small_management_program.model.database.DatabaseException;
+import small_management_program.view.AnnotationShowAlertSuccess;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -66,6 +67,7 @@ public class StageAddAdministratorController implements Initializable {
     }
 
     //captured by AspectShowAlerts
+    @AnnotationShowAlertSuccess(message = "Nuovo amministratore creato con successo")
     public void StageGoal() throws SQLException, DatabaseException {
         Database.getInstance().executeQuery(new AdministratorAddNew(textFieldName.getText(), textFieldSurname.getText(),
                 textFieldAcronym.getText()));
