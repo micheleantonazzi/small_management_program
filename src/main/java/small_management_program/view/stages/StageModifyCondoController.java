@@ -8,18 +8,24 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import small_management_program.controller.DuplicateMap;
 import small_management_program.controller.parameters.WhereParameters;
+import small_management_program.controller.queries.Query;
 import small_management_program.controller.queries.QueryWithResults;
 import small_management_program.controller.queries.administrator.AdministratorQueryWithResults;
 import small_management_program.controller.queries.administrator.AdministratorSelectAll;
 import small_management_program.controller.queries.billing.BillingSelectWithParameter;
+import small_management_program.controller.queries.condo.CondoDelete;
+import small_management_program.controller.queries.condo.CondoModify;
 import small_management_program.controller.queries.condo.CondoSelectAll;
 import small_management_program.controller.queries.condo.CondoSelectWithParameters;
 import small_management_program.model.Months;
 import small_management_program.model.database.Database;
 import small_management_program.model.database.DatabaseException;
+import small_management_program.view.annotation.AnnotationMessageConfirmation;
+import small_management_program.view.annotation.AnnotationShowAlertSuccess;
 import small_management_program.view.graphicutilities.ChoiceBoxItemId;
 import small_management_program.view.graphicutilities.GraphicUtilities;
 
+import javax.xml.crypto.Data;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Iterator;
@@ -83,50 +89,52 @@ public class StageModifyCondoController implements Initializable {
             this.choiceBoxAdministrators.setItems(getAdministrator.getChoiceBoxItems());
 
             this.choiceBoxCondos.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-                try{
-                    QueryWithResults querySelectCondo = new CondoSelectWithParameters(new WhereParameters("id_condo = " + newValue.hashCode()));
-                    Database.getInstance().executeQuery(querySelectCondo);
-                    DuplicateMap<Integer, String> result = querySelectCondo.getResults();
-                    this.idCondo = result.keySet().iterator().next();
+                if(newValue != null) {
+                    try {
+                        QueryWithResults querySelectCondo = new CondoSelectWithParameters(new WhereParameters("id_condo = " + newValue.hashCode()));
+                        Database.getInstance().executeQuery(querySelectCondo);
+                        DuplicateMap<Integer, String> result = querySelectCondo.getResults();
+                        this.idCondo = result.keySet().iterator().next();
 
-                    this.textFieldId.setText(String.valueOf(idCondo));
-                    this.textFieldCode.setText(result.get(idCondo, 0));
+                        this.textFieldId.setText(String.valueOf(idCondo));
+                        this.textFieldCode.setText(result.get(idCondo, 0));
 
-                    int idAdministrator = Integer.valueOf(result.get(idCondo, 1));
-                    Iterator<ChoiceBoxItemId> itAdministrator = this.choiceBoxAdministrators.getItems().iterator();
-                    int countAdministrator = 0;
-                    for(; idAdministrator != itAdministrator.next().hashCode(); ++countAdministrator){}
-                    this.choiceBoxAdministrators.getSelectionModel().select(countAdministrator);
+                        int idAdministrator = Integer.valueOf(result.get(idCondo, 1));
+                        Iterator<ChoiceBoxItemId> itAdministrator = this.choiceBoxAdministrators.getItems().iterator();
+                        int countAdministrator = 0;
+                        for (; idAdministrator != itAdministrator.next().hashCode(); ++countAdministrator) {
+                        }
+                        this.choiceBoxAdministrators.getSelectionModel().select(countAdministrator);
 
-                    int idMonth = Integer.valueOf(result.get(idCondo, 2));
-                    Iterator<ChoiceBoxItemId> itMonths = this.choiceBoxMonths.getItems().iterator();
-                    int countMonth = 0;
-                    for(; idMonth != itMonths.next().hashCode(); ++countMonth){}
-                    this.choiceBoxMonths.getSelectionModel().select(countMonth);
+                        int idMonth = Integer.valueOf(result.get(idCondo, 2));
+                        Iterator<ChoiceBoxItemId> itMonths = this.choiceBoxMonths.getItems().iterator();
+                        int countMonth = 0;
+                        for (; idMonth != itMonths.next().hashCode(); ++countMonth) {
+                        }
+                        this.choiceBoxMonths.getSelectionModel().select(countMonth);
 
-                    this.textFieldName.setText(result.get(idCondo, 3));
-                    this.textFieldProvince.setText(result.get(idCondo, 4));
-                    this.textFieldCity.setText(result.get(idCondo, 5));
-                    this.textFieldAddress.setText(result.get(idCondo, 6));
-                    this.textFieldCap.setText(result.get(idCondo, 7));
-                    this.textFieldFlats.setText(result.get(idCondo, 8));
+                        this.textFieldName.setText(result.get(idCondo, 3));
+                        this.textFieldProvince.setText(result.get(idCondo, 4));
+                        this.textFieldCity.setText(result.get(idCondo, 5));
+                        this.textFieldAddress.setText(result.get(idCondo, 6));
+                        this.textFieldCap.setText(result.get(idCondo, 7));
+                        this.textFieldFlats.setText(result.get(idCondo, 8));
 
-                    this.setDisabled(false);
+                        this.setDisabled(false);
 
-                    //Se ci sono fatture diabilito la possibilità di cambiare mese di chiusura dell'esercizio,
-                    //altrimenti verranno introdotti errori
+                        //Se ci sono fatture diabilito la possibilità di cambiare mese di chiusura dell'esercizio,
+                        //altrimenti verranno introdotti errori
 
-                    QueryWithResults billingSelect = new BillingSelectWithParameter("id_condo=" + idCondo);
-                    Database.getInstance().executeQuery(billingSelect);
-                    if(billingSelect.getResults().keySet().size() > 0)
-                        this.choiceBoxMonths.setDisable(true);
+                        QueryWithResults billingSelect = new BillingSelectWithParameter("id_condo=" + idCondo);
+                        Database.getInstance().executeQuery(billingSelect);
+                        if (billingSelect.getResults().keySet().size() > 0)
+                            this.choiceBoxMonths.setDisable(true);
 
-                }
-                catch (DatabaseException exception){
-                    GraphicUtilities.getInstance().showAlertError(exception);
-                }
-                catch (SQLException ex){
-                    GraphicUtilities.getInstance().showAlertError("Operazione non riuscita", ex.getMessage());
+                    } catch (DatabaseException exception) {
+                        GraphicUtilities.getInstance().showAlertError(exception);
+                    } catch (SQLException ex) {
+                        GraphicUtilities.getInstance().showAlertError("Operazione non riuscita", ex.getMessage());
+                    }
                 }
             });
 
@@ -227,6 +235,30 @@ public class StageModifyCondoController implements Initializable {
         else
             this.buttonModifyCondo.setDisable(true);
         return ret;
+    }
+
+    @AnnotationMessageConfirmation(message = "Vuoi davvero eliminare il condominio selezionato?")
+    public void stageGoalDelete() throws Throwable{
+        Query condoDelete = new CondoDelete(this.idCondo);
+        Database.getInstance().executeQuery(condoDelete);
+        this.setDisabled(true);
+        CondoSelectAll query = new CondoSelectAll();
+        Database.getInstance().executeQuery(query);
+        this.choiceBoxCondos.setItems(query.getChoiceBoxItems());
+    }
+
+    @AnnotationShowAlertSuccess(message = "Condominio modificato con successo.")
+    public void stageGoal() throws Throwable{
+        Query queryModifyCondo = new CondoModify(this.idCondo, Integer.valueOf(this.textFieldId.getText()), this.textFieldCode.getText(),
+                Integer.valueOf(this.choiceBoxAdministrators.getSelectionModel().getSelectedItem().hashCode()), Integer.valueOf(this.choiceBoxMonths.getSelectionModel().getSelectedItem().hashCode()),
+                this.textFieldName.getText(), this.textFieldProvince.getText(), this.textFieldCity.getText(), this.textFieldAddress.getText(),
+                this.textFieldCap.getText(), Integer.valueOf(this.textFieldFlats.getText()));
+        Database.getInstance().executeQuery(queryModifyCondo);
+
+        this.setDisabled(true);
+        CondoSelectAll query = new CondoSelectAll();
+        Database.getInstance().executeQuery(query);
+        this.choiceBoxCondos.setItems(query.getChoiceBoxItems());
     }
 
     public void closeStage(ActionEvent event){}
