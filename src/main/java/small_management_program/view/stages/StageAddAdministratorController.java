@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import small_management_program.controller.queries.administrator.AdministratorAddNew;
 import small_management_program.model.database.Database;
 import small_management_program.model.database.DatabaseException;
+import small_management_program.view.annotation.AnnotationShowAlertSuccess;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -49,21 +50,25 @@ public class StageAddAdministratorController implements Initializable {
                 textFieldAcronym.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
             else
                 this.textFieldAcronym.setText(newValue.toUpperCase());
+            checkFields();
         });
 
         this.textFieldName.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("[a-zA-Z]+"))
                 textFieldName.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            checkFields();
         });
 
         this.textFieldSurname.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("[a-zA-Z]+"))
                 textFieldSurname.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            checkFields();
         });
     }
 
     //captured by AspectShowAlerts
-    public void StageGoal() throws SQLException, DatabaseException {
+    @AnnotationShowAlertSuccess(message = "Nuovo amministratore creato con successo")
+    public void stageGoal() throws SQLException, DatabaseException {
         Database.getInstance().executeQuery(new AdministratorAddNew(textFieldName.getText(), textFieldSurname.getText(),
                 textFieldAcronym.getText()));
         textFieldAcronym.setText("");

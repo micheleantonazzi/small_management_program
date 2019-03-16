@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="stageAddAdministratorContainer" prefHeight="224.0" prefWidth="327.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="small_management_program.view.stages.StageAddAdministratorController">
+<AnchorPane id="stageAddAdministratorContainer" prefHeight="202.0" prefWidth="327.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="small_management_program.view.stages.StageAddAdministratorController">
    <children>
       <GridPane layoutY="-2.0" prefHeight="187.0" prefWidth="287.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>
@@ -26,9 +26,9 @@
             <Label text="Acronimo" />
             <Label text="Nome" GridPane.rowIndex="1" />
             <Label text="Cognome" GridPane.rowIndex="2" />
-            <TextField fx:id="textFieldAcronym" onKeyPressed="#checkFields" GridPane.columnIndex="1" />
-            <TextField fx:id="textFieldName" onKeyPressed="#checkFields" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="textFieldSurname" onKeyPressed="#checkFields" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="textFieldAcronym" GridPane.columnIndex="1" />
+            <TextField fx:id="textFieldName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="textFieldSurname" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <GridPane GridPane.columnSpan="2" GridPane.rowIndex="3">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -45,7 +45,7 @@
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Button>
-                  <Button id="buttonAddAdministrator" fx:id="buttonAddAdministrator" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#StageGoal" prefHeight="31.0" prefWidth="110.0" text="Aggiungi" GridPane.columnIndex="1">
+                  <Button id="buttonAddAdministrator" fx:id="buttonAddAdministrator" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#stageGoal" prefHeight="31.0" prefWidth="110.0" text="Aggiungi" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin></Button>

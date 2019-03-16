@@ -103,18 +103,6 @@ public class GraphicUtilities {
         new AlertError(title, message).showAndWait();
     }
 
-    /*public ObservableList<ChoiceBoxItemId> getCondosObservableList(DuplicateMap<Integer, String> condos){
-        ObservableList<ChoiceBoxItemId> condosItems = FXCollections.observableArrayList();
-        Set<Integer> ids = condos.keySet();
-        for(Iterator<Integer> it = ids.iterator(); it.hasNext();){
-            int id = it.next();
-            ChoiceBoxItemId item = new ChoiceBoxItemId(id, id +  " - " + condos.get(id, 3));
-            condosItems.add(item);
-        }
-        return condosItems;
-    }
-    */
-
     public boolean showAlertConfirmationDelete(String title, String header){
         return this.showAlertConfirmation(title, header, "Elimina");
     }

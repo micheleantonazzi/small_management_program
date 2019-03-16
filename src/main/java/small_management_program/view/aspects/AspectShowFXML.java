@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import org.aspectj.lang.annotation.After;
 
 import org.aspectj.lang.annotation.Aspect;
-import small_management_program.view.AnnotationShowFXML;
+import small_management_program.view.annotation.AnnotationShowFXML;
 
 import java.io.IOException;
 

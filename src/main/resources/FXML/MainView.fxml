@@ -23,7 +23,8 @@
                <items>
                   <Menu id="menuItemCondos" mnemonicParsing="false" text="Condomini">
                     <items>
-                      <MenuItem id="menuItemAddCondo" fx:id="menuItemAddCondo" mnemonicParsing="false" onAction="#showStageAddCondo" text="Aggiungi condominio" />
+                      <MenuItem id="menuItemAddCondo" fx:id="menuItemAddCondo" mnemonicParsing="false" onAction="#showStageAddCondo" text="Aggiungi Condominio" />
+                        <MenuItem id="menuItemModifyCondo" mnemonicParsing="false" onAction="#showStageModifyCondo" text="Modifica Condominio" />
                     </items>
                   </Menu>
                   <Menu id="menuItemAdministrator" mnemonicParsing="false" text="Amministratori">

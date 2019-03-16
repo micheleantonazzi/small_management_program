@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
+import small_management_program.view.annotation.AnnotationShowFXML;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,4 +34,7 @@ public class MainViewController implements Initializable {
 
     @AnnotationShowFXML(FXMLName = "/FXML/stages/StageModifyAdministrator.fxml", Tilte = "Modifica Amministratore")
     public void showStageModifyAdministrator(){}
+
+    @AnnotationShowFXML(FXMLName = "/FXML/stages/StageModifyCondo.fxml", Tilte = "Modifica Condominio")
+    public void showStageModifyCondo(){}
 }
