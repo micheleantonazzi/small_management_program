@@ -140,7 +140,7 @@ public class StageModifyAdministratorController implements Initializable {
         this.choiceBoxAdministrators.getSelectionModel().select(index);
     }
 
-    @AnnotationMessageConfirmation(message = "Vuoi davvero eliminare l'amministratore?")
+    @AnnotationMessageConfirmation(message = "Vuoi davvero eliminare l'amministratore selezionato?")
     public void StageGoalDelete() throws Throwable{
         int id = this.choiceBoxAdministrators.getSelectionModel().getSelectedItem().hashCode();
         Database.getInstance().executeQuery(new AdministratorDelete(id));
