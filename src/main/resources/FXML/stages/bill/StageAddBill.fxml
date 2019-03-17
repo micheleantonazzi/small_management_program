@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <AnchorPane id="stageAddBillContainer" prefHeight="192.0" prefWidth="388.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="small_management_program.view.stages.bill.StageAddBillController">
    <children>
       <GridPane prefHeight="206.0" prefWidth="434.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
@@ -28,9 +27,9 @@
             <Label text="Condominio" />
             <Label text="Anno" GridPane.rowIndex="1" />
             <Label text="Importo" GridPane.rowIndex="2" />
-            <ChoiceBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" />
-            <ChoiceBox maxWidth="1.7976931348623157E308" prefWidth="129.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="choiceBoxCondos" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" />
+            <ChoiceBox fx:id="choiceBoxYears" maxWidth="1.7976931348623157E308" prefWidth="129.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="textFieldTotal" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <GridPane hgap="10.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -43,8 +42,8 @@
                   <Insets top="10.0" />
                </padding>
                <children>
-                  <Button id="buttonExit" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Esci" />
-                  <Button id="buttonAddBill" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Aggiungi" GridPane.columnIndex="1" />
+                  <Button id="buttonExit" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#closeStage" text="Esci" />
+                  <Button id="buttonAddBill" fx:id="buttonAddBill" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#stageGoal" text="Aggiungi" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children>
