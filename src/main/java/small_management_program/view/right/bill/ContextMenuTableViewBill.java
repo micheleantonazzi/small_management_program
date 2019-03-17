@@ -46,7 +46,7 @@ public class ContextMenuTableViewBill extends ContextMenu {
 
     private MenuItem getItemMadeBill(){
         MenuItem itemMadeBill = new MenuItem("Crea fattura");
-        itemMadeBill.setGraphic(new ImageView(this.getClass().getResource("/images/icons/credit-card-plus.png").toString()));
+        itemMadeBill.setGraphic(new ImageView(this.getClass().getResource("/images/icons/receipt.png").toString()));
         itemMadeBill.setOnAction(event-> {
             event.consume();
             AlgorithmsBills.getInstance().createBill(this.row.getItem(), true);
