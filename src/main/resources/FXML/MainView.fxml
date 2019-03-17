@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
@@ -54,10 +55,10 @@
       </MenuBar>
    </top>
    <center>
-      <GridPane BorderPane.alignment="CENTER">
+      <GridPane hgap="20.0" vgap="10.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="ALWAYS" maxWidth="370.0" minWidth="10.0" percentWidth="20.0" prefWidth="110.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="624.0" minWidth="10.0" prefWidth="624.0" />
+          <ColumnConstraints hgrow="ALWAYS" maxWidth="370.0" minWidth="10.0" percentWidth="22.0" prefWidth="110.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="624.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -67,6 +68,11 @@
          </BorderPane.margin>
          <children>
             <VBox fx:id="vBoxLeft" prefHeight="564.0" prefWidth="101.0" spacing="10.0" />
+            <VBox fx:id="vBoxRight" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1">
+               <children>
+                  <HBox fx:id="hBoxRight" prefWidth="573.0" spacing="10.0" />
+               </children>
+            </VBox>
          </children>
       </GridPane>
    </center>
