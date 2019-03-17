@@ -214,7 +214,7 @@ public class TableViewBilling extends TableView<BillingRepresentation> implement
                 ObservableList<BillingRepresentation> items = table.getItems();
 
                 for(BillingRepresentation billingRepresentation : items){
-                    AlgorithmsBills.getInstance().createBill(billingRepresentation, false);
+                    AlgorithmsBills.getInstance().createBill(billingRepresentation, true);
                 }
                 TreeViewSubject.getInstance().updateAll();
             });

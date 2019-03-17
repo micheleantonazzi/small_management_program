@@ -66,8 +66,11 @@ public class AlgorithmsBills {
 
     //Questo metodo viene chiamato quando si effettua una fattura alla data corrente, infatti passa al metodo sottostante i valori di anno e mese correnti
     public void createBill(BillingRepresentation billingRepresentation, boolean showAlert){
+
         int month = Calendar.getInstance().get(Calendar.MONTH);
 
+        if(!this.isPossible(billingRepresentation, month))
+            return;
         //Se sto fatturando in automatico un condominio di due anno fa completo la fatturazione passando il mese di chiusura
         //dell'esercizio
         if (Integer.valueOf(billingRepresentation.getYear()) < Calendar.getInstance().get(Calendar.YEAR) - 1)
@@ -76,10 +79,7 @@ public class AlgorithmsBills {
     }
 
     //Questo metodo viene chiamato direttamente se è necessario andare ad effettuare una fattura in un mese di un anno specifico
-    public void createBill(BillingRepresentation billingRepresentation, int billingYear, int billingMonth, boolean showAlert){
-
-        if(!this.isPossible(billingRepresentation, billingMonth))
-            return;
+    private void createBill(BillingRepresentation billingRepresentation, int billingYear, int billingMonth, boolean showAlert){
 
         Calendar condoCalendar = Calendar.getInstance();
         condoCalendar.set(Integer.valueOf(billingRepresentation.getYear()), Months.getInstance().getMonthNumber(billingRepresentation.getMonth()), 1);
