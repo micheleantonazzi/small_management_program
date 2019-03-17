@@ -1,10 +1,12 @@
 package small_management_program.view.stages;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import small_management_program.controller.DuplicateMap;
 import small_management_program.controller.parameters.WhereParameters;
@@ -22,10 +24,10 @@ import small_management_program.model.database.Database;
 import small_management_program.model.database.DatabaseException;
 import small_management_program.view.annotation.AnnotationMessageConfirmation;
 import small_management_program.view.annotation.AnnotationShowAlertSuccess;
+import small_management_program.view.annotation.AnnotationShowFXML;
 import small_management_program.view.graphicutilities.ChoiceBoxItemId;
 import small_management_program.view.graphicutilities.GraphicUtilities;
 
-import javax.xml.crypto.Data;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Iterator;
@@ -34,7 +36,7 @@ import java.util.ResourceBundle;
 public class StageModifyCondoController implements Initializable {
 
     @FXML
-    private  ChoiceBox choiceBoxCondos;
+    private ComboBox comboBoxCondos;
 
     @FXML
     private TextField textFieldId;
@@ -74,6 +76,8 @@ public class StageModifyCondoController implements Initializable {
 
     private int idCondo;
 
+    private static Integer condoIdModify = null;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -81,14 +85,14 @@ public class StageModifyCondoController implements Initializable {
             //Load condos
             CondoSelectAll getCondos = new CondoSelectAll();
             Database.getInstance().executeQuery(getCondos);
-            this.choiceBoxCondos.setItems(getCondos.getChoiceBoxItems());
+            this.comboBoxCondos.setItems(getCondos.getChoiceBoxItems());
 
             //Load administrators
             AdministratorQueryWithResults getAdministrator = new AdministratorSelectAll();
             Database.getInstance().executeQuery(getAdministrator);
             this.choiceBoxAdministrators.setItems(getAdministrator.getChoiceBoxItems());
 
-            this.choiceBoxCondos.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+            this.comboBoxCondos.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
                 if(newValue != null) {
                     try {
                         QueryWithResults querySelectCondo = new CondoSelectWithParameters(new WhereParameters("id_condo = " + newValue.hashCode()));
@@ -137,8 +141,6 @@ public class StageModifyCondoController implements Initializable {
                     }
                 }
             });
-
-
         }
         catch (DatabaseException ex){
             GraphicUtilities.getInstance().showAlertError(ex);
@@ -193,7 +195,22 @@ public class StageModifyCondoController implements Initializable {
             this.checkFields();
         });
 
-        this.setDisabled(true);
+        //if before it has been set to condominium to be modified
+        if (condoIdModify != null){
+            ObservableList<ChoiceBoxItemId> condos = this.comboBoxCondos.getItems();
+            boolean found = false;
+            for(Iterator<ChoiceBoxItemId> it = condos.iterator(); it.hasNext() && !found;){
+                ChoiceBoxItemId item = it.next();
+                if(condoIdModify == item.hashCode()){
+                    found = true;
+                    this.comboBoxCondos.getSelectionModel().select(item);
+                }
+            }
+            this.idCondo = condoIdModify;
+            condoIdModify = null;
+        }
+        else
+            this.setDisabled(true);
 
     }
 
@@ -244,7 +261,7 @@ public class StageModifyCondoController implements Initializable {
         this.setDisabled(true);
         CondoSelectAll query = new CondoSelectAll();
         Database.getInstance().executeQuery(query);
-        this.choiceBoxCondos.setItems(query.getChoiceBoxItems());
+        this.comboBoxCondos.setItems(query.getChoiceBoxItems());
     }
 
     @AnnotationShowAlertSuccess(message = "Condominio modificato con successo.")
@@ -258,8 +275,15 @@ public class StageModifyCondoController implements Initializable {
         this.setDisabled(true);
         CondoSelectAll query = new CondoSelectAll();
         Database.getInstance().executeQuery(query);
-        this.choiceBoxCondos.setItems(query.getChoiceBoxItems());
+        this.comboBoxCondos.setItems(query.getChoiceBoxItems());
     }
+
+    public static void setIdCondo(int id){
+        condoIdModify = id;
+    }
+
+    @AnnotationShowFXML(FXMLName = "/FXML/stages/StageModifyCondo.fxml", Tilte = "Modifica Condominio")
+    public static void show(){}
 
     public void closeStage(ActionEvent event){}
 }

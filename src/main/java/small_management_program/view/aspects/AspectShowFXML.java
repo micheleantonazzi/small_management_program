@@ -17,7 +17,8 @@ import java.io.IOException;
 @Aspect
 public class AspectShowFXML {
 
-    @After("execution(public void small_management_program.view..showStage*()) && " +
+    @After("(execution(public void small_management_program.view..showStage*()) ||" +
+            "execution(public static void small_management_program.view.stages..show())) && " +
             "@annotation(annotation)")
     public void showFXML(AnnotationShowFXML annotation){
         try {
