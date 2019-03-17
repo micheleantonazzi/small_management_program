@@ -3,7 +3,6 @@ package small_management_program.controller.queries.bill;
 import small_management_program.controller.queries.Query;
 import small_management_program.controller.queries.QueryRevert;
 import small_management_program.model.database.DatabaseException;
-import small_management_program.model.Months;
 
 public class BillAddNew implements QueryRevert {
 

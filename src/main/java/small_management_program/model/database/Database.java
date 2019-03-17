@@ -2,6 +2,7 @@ package small_management_program.model.database;
 
 import com.mysql.cj.jdbc.exceptions.CommunicationsException;
 import small_management_program.controller.queries.Query;
+import small_management_program.controller.queries.QueryRevert;
 import small_management_program.controller.queries.QueryWithError;
 import small_management_program.controller.queries.QueryWithResults;
 
@@ -74,6 +75,10 @@ public class Database {
                     QueryWithError queryWithError = (QueryWithError) query;
                     statement.execute(queryWithError.commit());
                 }
+            }
+            if(query instanceof QueryRevert){
+                QueryRevert queryRevert = (QueryRevert) query;
+                this.listRevertQueries.add(queryRevert.getQueryRevert());
             }
         }
         catch (CommunicationsException exception){
