@@ -4,9 +4,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import org.aspectj.lang.annotation.After;
 
 import org.aspectj.lang.annotation.Aspect;
+import small_management_program.controller.left.TreeViewSubject;
 import small_management_program.view.annotation.AnnotationShowFXML;
 
 import java.io.IOException;
@@ -15,7 +17,8 @@ import java.io.IOException;
 @Aspect
 public class AspectShowFXML {
 
-    @After("execution(public void small_management_program.view..showStage*()) && " +
+    @After("(execution(public void small_management_program.view..showStage*()) ||" +
+            "execution(public static void small_management_program.view.stages..show())) && " +
             "@annotation(annotation)")
     public void showFXML(AnnotationShowFXML annotation){
         try {
@@ -27,7 +30,7 @@ public class AspectShowFXML {
             Scene scene = new Scene(fxmlLoader.getRoot());
             scene.getStylesheets().add(this.getClass().getResource("/style/MainViewStyle.css").toString());
             stage.setScene(scene);
-
+            stage.setOnCloseRequest((WindowEvent event1) -> TreeViewSubject.getInstance().updateAll());
             stage.showAndWait();
         }
         catch (IOException exception){
