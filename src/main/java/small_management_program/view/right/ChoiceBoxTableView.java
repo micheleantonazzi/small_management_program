@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.HBox;
+import small_management_program.controller.Observer;
 import small_management_program.controller.left.TreeViewSubject;
 import small_management_program.controller.right.condos.DataCondos;
 import small_management_program.view.Command;
@@ -13,9 +14,15 @@ import small_management_program.view.MainViewController;
 import small_management_program.view.left.TreeViewObserver;
 import small_management_program.view.right.condos.TableViewCondos;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ChoiceBoxTableView extends ChoiceBox {
 
     private ObservableList<Command> items = FXCollections.observableArrayList();
+    private List<Observer> observers = new ArrayList<>(Arrays.asList(DataCondos.getInstance()));
 
     MainViewController mainViewController;
 
@@ -29,10 +36,16 @@ public class ChoiceBoxTableView extends ChoiceBox {
 
         this.getSelectionModel().selectedItemProperty().addListener((ChangeListener<Command>) (ObservableValue<? extends Command> observableValue, Command oldCommand, Command newCommand) -> {
             if(newCommand != null){
+                this.detachAll();
                 newCommand.execute();
             }
         });
 
+    }
+
+    private void detachAll(){
+        for (Observer observer : observers)
+            TreeViewSubject.getInstance().detach(observer);
     }
 
     private class TableViewCondosCommand implements Command{
