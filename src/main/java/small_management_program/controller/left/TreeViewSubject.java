@@ -19,7 +19,7 @@ public class TreeViewSubject extends Subject {
 
     private static TreeViewSubject instance = null;
 
-    private TreeViewItemStrategy strategy;
+    private TreeViewItemStrategy treeViewItemStrategy;
 
     private WhereParameters whereParameters;
 
@@ -32,7 +32,7 @@ public class TreeViewSubject extends Subject {
     private TreeViewSubject(){}
 
     public void setItemStrategy(TreeViewItemStrategy itemStrategy){
-        this.strategy = itemStrategy;
+        this.treeViewItemStrategy = itemStrategy;
         this.updateTreeView = true;
         super.updateObservers();
         this.updateTreeView = false;
@@ -43,7 +43,7 @@ public class TreeViewSubject extends Subject {
         if(!this.updateTreeView)
             throw new UpdateException();
 
-        TreeItem root = this.strategy.getTreeViewItems();
+        TreeItem root = this.treeViewItemStrategy.getTreeViewItems();
         this.whereParameters = ((TreeItemWhereParameters) root).getWhereParameters();
         return root;
     }
@@ -61,5 +61,14 @@ public class TreeViewSubject extends Subject {
             throw new UpdateException();
         }
         return this.whereParameters;
+    }
+
+    public void updateAll(){
+        if (this.treeViewItemStrategy != null)
+            setItemStrategy(this.treeViewItemStrategy);
+
+        //Chiamo il controller perché li è inserito il controllo per verificare se la tabella è ancora nulla
+
+        TreeViewSubject.getInstance().setWhereParameters(this.whereParameters);
     }
 }
