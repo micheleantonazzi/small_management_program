@@ -11,6 +11,8 @@ import javafx.scene.control.ChoiceBox;
 //import small_management_program.controller.left.itemstrategy.TreeViewItemMonthsCondos;
 import small_management_program.controller.left.TreeViewSubject;
 import small_management_program.controller.left.itemstrategy.TreeViewItemAllCondo;
+import small_management_program.controller.left.itemstrategy.TreeViewItemMonths;
+import small_management_program.controller.left.itemstrategy.TreeViewItemMonthsCondos;
 import small_management_program.view.Command;
 
 public class ChoiceBoxTreeView extends ChoiceBox{
@@ -28,8 +30,8 @@ public class ChoiceBoxTreeView extends ChoiceBox{
     private ChoiceBoxTreeView(){
         this.setPrefWidth(Double.POSITIVE_INFINITY);
         items.add(new ItemViewAllCondos());
-        //items.add(new ItemViewMonths());
-        //items.add(new ItemViewMonthsCondos());
+        items.add(new ItemViewMonths());
+        items.add(new ItemViewMonthsCondos());
         this.setItems(items);
 
         this.getSelectionModel().selectedItemProperty().addListener((ChangeListener<Command>) (ObservableValue<? extends Command> observableValue, Command oldCommand, Command newCommand) -> {
@@ -54,7 +56,7 @@ public class ChoiceBoxTreeView extends ChoiceBox{
         }
     }
 
-    /*private class ItemViewMonths implements Command{
+    private class ItemViewMonths implements Command{
 
         @Override
         public String toString(){
@@ -63,7 +65,7 @@ public class ChoiceBoxTreeView extends ChoiceBox{
 
         @Override
         public void execute(){
-            ControllerFacade.getInstance().setTreeViewItemStrategy(new TreeViewItemMonths());
+            TreeViewSubject.getInstance().setItemStrategy(new TreeViewItemMonths());
         }
     }
 
@@ -76,8 +78,8 @@ public class ChoiceBoxTreeView extends ChoiceBox{
 
         @Override
         public void execute(){
-            ControllerFacade.getInstance().setTreeViewItemStrategy(new TreeViewItemMonthsCondos());
+            TreeViewSubject.getInstance().setItemStrategy(new TreeViewItemMonthsCondos());
         }
     }
-    */
+
 }
