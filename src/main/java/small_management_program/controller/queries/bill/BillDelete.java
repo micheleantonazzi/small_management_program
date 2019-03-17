@@ -2,17 +2,17 @@
  * Michele Antonazzi
  */
 
-package small_management_program.controller.queries.billing;
+package small_management_program.controller.queries.bill;
 
 import small_management_program.controller.queries.Query;
 import small_management_program.model.database.DatabaseException;
 
-public class BillingDelete implements Query {
+public class BillDelete implements Query {
 
     private int idCondo;
     private int year;
 
-    public BillingDelete(int idCondo, int year){
+    public BillDelete(int idCondo, int year){
         this.idCondo = idCondo;
         this.year = year;
     }
@@ -25,6 +25,6 @@ public class BillingDelete implements Query {
 
     @Override
     public DatabaseException getException(){
-        return new DatabaseException("Errore database", "Attenzione, non è stato possibile rimuovere la fattura.");
+        return new DatabaseException("Errore database", "Attenzione, non \u00E8 stato possibile rimuovere la fattura.");
     }
 }

@@ -8,7 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
-import small_management_program.controller.queries.billing.BillingAddNew;
+import small_management_program.controller.queries.bill.BillAddNew;
 import small_management_program.controller.queries.condo.CondoSelectAll;
 import small_management_program.model.database.Database;
 import small_management_program.model.database.DatabaseException;
@@ -82,7 +82,7 @@ public class StageAddBillController implements Initializable {
 
     @AnnotationShowAlertSuccess(message = "Nuova fattura aggiunta con successo")
     public void stageGoal() throws Throwable{
-        BillingAddNew query = new BillingAddNew(this.choiceBoxCondos.getSelectionModel().getSelectedItem().hashCode(),
+        BillAddNew query = new BillAddNew(this.choiceBoxCondos.getSelectionModel().getSelectedItem().hashCode(),
                 Integer.valueOf(this.choiceBoxYears.getSelectionModel().getSelectedItem().toString()),
                 Double.valueOf(this.textFieldTotal.getText()));
         Database.getInstance().executeQuery(query);

@@ -1,5 +1,5 @@
 
-package small_management_program.controller.queries.billing;
+package small_management_program.controller.queries.bill;
 
 import small_management_program.controller.parameters.WhereParameters;
 
@@ -11,19 +11,19 @@ import small_management_program.controller.parameters.WhereParameters;
  *
  */
 
-public class BillingCondosSelectLastWithParameter extends BillingCondosSelectLast {
+public class BillCondosSelectLastWithParameter extends BillCondosSelectLast {
 
     private WhereParameters whereParameters;
 
-    public BillingCondosSelectLastWithParameter(WhereParameters whereParameters) {
+    public BillCondosSelectLastWithParameter(WhereParameters whereParameters) {
         this.whereParameters = whereParameters;
     }
 
-    public BillingCondosSelectLastWithParameter(String whereParameters){
+    public BillCondosSelectLastWithParameter(String whereParameters){
         this(new WhereParameters(whereParameters));
     }
 
-    public BillingCondosSelectLastWithParameter(){
+    public BillCondosSelectLastWithParameter(){
         this("1 = 1");
     }
 

@@ -1,4 +1,4 @@
-package small_management_program.controller.queries.billing;
+package small_management_program.controller.queries.bill;
 
 import small_management_program.controller.DuplicateMap;
 import small_management_program.controller.parameters.WhereParameters;
@@ -15,19 +15,19 @@ import java.sql.SQLException;
  * @author Michele Antonazzi
  */
 
-public class BillingSelectWithParameter extends QueryWithResults {
+public class BillSelectWithParameter extends QueryWithResults {
 
     private WhereParameters whereParameters;
 
-    public BillingSelectWithParameter(WhereParameters whereParameters){
+    public BillSelectWithParameter(WhereParameters whereParameters){
         this.whereParameters = whereParameters;
     }
 
-    public BillingSelectWithParameter(String whereParameters){
+    public BillSelectWithParameter(String whereParameters){
         this(new WhereParameters(whereParameters));
     }
 
-    public BillingSelectWithParameter(){
+    public BillSelectWithParameter(){
         this("1 = 1");
     }
 

@@ -1,5 +1,5 @@
 
-package small_management_program.controller.queries.billing;
+package small_management_program.controller.queries.bill;
 
 import small_management_program.controller.DuplicateMap;
 import small_management_program.controller.queries.QueryWithResults;
@@ -14,11 +14,11 @@ import java.sql.SQLException;
  *
  * @author Michele Antonazzi
  */
-public class BillingSelectYears extends QueryWithResults {
+public class BillSelectYears extends QueryWithResults {
 
     private int idCondo;
 
-    public BillingSelectYears(int idCondo){
+    public BillSelectYears(int idCondo){
         this.idCondo = idCondo;
     }
 
@@ -43,6 +43,6 @@ public class BillingSelectYears extends QueryWithResults {
 
     @Override
     public DatabaseException getException(){
-        return new DatabaseException("Errore database", "Attenzione, non è stato possibile recuperare i dati dal database.");
+        return new DatabaseException("Errore database", "Attenzione, non \u00E8 stato possibile recuperare i dati dal database.");
     }
 }

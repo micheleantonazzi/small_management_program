@@ -1,17 +1,15 @@
-package small_management_program.controller.queries.billing;
+package small_management_program.controller.queries.bill;
 
 import small_management_program.controller.queries.Query;
 import small_management_program.model.database.DatabaseException;
 
-import java.util.regex.Pattern;
-
-public class BillingAddNew implements Query {
+public class BillAddNew implements Query {
 
     private int idCondo;
     private int year;
     private Double total;
 
-    public BillingAddNew(int idCondo, int year, Double total) {
+    public BillAddNew(int idCondo, int year, Double total) {
         this.idCondo = idCondo;
         this.year = year;
         this.total = total;
@@ -25,6 +23,6 @@ public class BillingAddNew implements Query {
     @Override
     public DatabaseException getException() {
         return new DatabaseException("Errore database", "Attenzione, impossibile impostare la fatturazione.\n" +
-                "Assicurarsi di non aver già assegnato due fatture nello stesso anno per il condiminio scelto.");
+                "Assicurarsi di non aver gi\u00E0 assegnato due fatture nello stesso anno per il condiminio scelto.");
     }
 }

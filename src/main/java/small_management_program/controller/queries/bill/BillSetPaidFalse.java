@@ -1,14 +1,14 @@
-package small_management_program.controller.queries.billing;
+package small_management_program.controller.queries.bill;
 
 import small_management_program.controller.queries.Query;
 import small_management_program.model.database.DatabaseException;
 
-public class BillingSetPaidFalse implements Query {
+public class BillSetPaidFalse implements Query {
 
     private int idCondo;
     private int year;
 
-    public BillingSetPaidFalse(int idCondo, int year){
+    public BillSetPaidFalse(int idCondo, int year){
         this.idCondo = idCondo;
         this.year = year;
     }
@@ -20,7 +20,7 @@ public class BillingSetPaidFalse implements Query {
 
     @Override
     public DatabaseException getException(){
-        return new DatabaseException("Errore database", "Attenzione, non è stato possibile impostare la fattura annuale come pagata.");
+        return new DatabaseException("Errore database", "Attenzione, non \u00E8 stato possibile impostare la fattura annuale come pagata.");
     }
 
 }

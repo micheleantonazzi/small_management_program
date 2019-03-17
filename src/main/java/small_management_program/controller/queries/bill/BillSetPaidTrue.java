@@ -1,15 +1,15 @@
-package small_management_program.controller.queries.billing;
+package small_management_program.controller.queries.bill;
 
 import small_management_program.controller.queries.Query;
 import small_management_program.controller.queries.QueryRevert;
 import small_management_program.model.database.DatabaseException;
 
-public class BillingSetPaidTrue implements QueryRevert {
+public class BillSetPaidTrue implements QueryRevert {
 
     private int idCondo;
     private int year;
 
-    public BillingSetPaidTrue(int idCondo, int year){
+    public BillSetPaidTrue(int idCondo, int year){
         this.idCondo = idCondo;
         this.year = year;
     }
@@ -21,12 +21,12 @@ public class BillingSetPaidTrue implements QueryRevert {
 
     @Override
     public DatabaseException getException(){
-        return new DatabaseException("Errore database", "Attenzione, non è stato possibile impostare la fattura annuale come pagata.");
+        return new DatabaseException("Errore database", "Attenzione, non \u00E8 stato possibile impostare la fattura annuale come pagata.");
     }
 
     @Override
     public Query getQueryRevert(){
-        return new BillingSetPaidFalse(this.idCondo, this.year);
+        return new BillSetPaidFalse(this.idCondo, this.year);
     }
 
 }

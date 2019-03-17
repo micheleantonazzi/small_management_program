@@ -1,4 +1,4 @@
-package small_management_program.controller.queries.billing;
+package small_management_program.controller.queries.bill;
 
 import small_management_program.controller.DuplicateMap;
 import small_management_program.controller.queries.QueryWithResults;
@@ -15,7 +15,7 @@ import java.sql.SQLException;
  *
  */
 
-public class BillingCondosSelectLast extends QueryWithResults {
+public class BillCondosSelectLast extends QueryWithResults {
 
 
 
@@ -54,6 +54,6 @@ public class BillingCondosSelectLast extends QueryWithResults {
 
     @Override
     public DatabaseException getException(){
-        return new DatabaseException("Errore database", "Attenzione, non è stato possibile recuperare le informazioni di fatturazione dal database.");
+        return new DatabaseException("Errore database", "Attenzione, non \u00E8 stato possibile recuperare le informazioni di fatturazione dal database.");
     }
 }
