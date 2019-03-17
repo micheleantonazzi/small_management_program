@@ -18,6 +18,7 @@ public class MainViewController implements Initializable {
 
     @FXML
     private VBox vBoxLeft;
+
     @FXML
     MenuItem menuItemQuit;
 
