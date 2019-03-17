@@ -52,7 +52,7 @@ public class TableViewCondos extends TableView implements Observer {
         tableColumn6.setCellValueFactory(new PropertyValueFactory<CondoRepresentation, String>("province"));
         tableColumn6.prefWidthProperty().bind(this.widthProperty().multiply(0.05));
 
-        TableColumn tableColumn7 = new TableColumn<>("Città");
+        TableColumn tableColumn7 = new TableColumn<>("Citt\u00E0");
         tableColumn7.setCellValueFactory(new PropertyValueFactory<CondoRepresentation, String>("city"));
         tableColumn7.prefWidthProperty().bind(this.widthProperty().multiply(0.12));
 

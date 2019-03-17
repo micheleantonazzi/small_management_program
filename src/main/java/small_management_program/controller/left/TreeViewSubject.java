@@ -2,6 +2,7 @@ package small_management_program.controller.left;
 
 import javafx.scene.control.TreeItem;
 import small_management_program.controller.Subject;
+import small_management_program.controller.UpdateException;
 import small_management_program.controller.left.itemstrategy.TreeViewItemStrategy;
 import small_management_program.controller.parameters.WhereParameters;
 import small_management_program.model.database.DatabaseException;
@@ -10,6 +11,11 @@ import small_management_program.view.graphicutilities.TreeItemWhereParameters;
 import java.sql.SQLException;
 
 public class TreeViewSubject extends Subject {
+
+    //UPDATE FLAG
+    private boolean updateTreeView = false;
+    private boolean updateTable = false;
+
 
     private static TreeViewSubject instance = null;
 
@@ -27,16 +33,33 @@ public class TreeViewSubject extends Subject {
 
     public void setItemStrategy(TreeViewItemStrategy itemStrategy){
         this.strategy = itemStrategy;
+        this.updateTreeView = true;
         super.updateObservers();
+        this.updateTreeView = false;
     }
 
     @Override
-    public TreeItem getTreeViewItems() throws DatabaseException, SQLException {
+    public TreeItem getTreeViewItems() throws DatabaseException, SQLException, UpdateException {
+        if(!this.updateTreeView)
+            throw new UpdateException();
 
         TreeItem root = this.strategy.getTreeViewItems();
         this.whereParameters = ((TreeItemWhereParameters) root).getWhereParameters();
         return root;
     }
 
+    public void setWhereParameters(WhereParameters whereParameters){
+        this.updateTable = true;
+        this.whereParameters = whereParameters;
+        updateObservers();
+        this.updateTable = false;
+    }
 
+    @Override
+    public WhereParameters getWhereParameters() throws UpdateException {
+        if(!this.updateTable){
+            throw new UpdateException();
+        }
+        return this.whereParameters;
+    }
 }

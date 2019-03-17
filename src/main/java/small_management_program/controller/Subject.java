@@ -43,7 +43,7 @@ public abstract class Subject{
         return FXCollections.observableArrayList();
     }
 
-    public TreeItem getTreeViewItems() throws DatabaseException, SQLException {
+    public TreeItem getTreeViewItems() throws DatabaseException, SQLException, UpdateException {
         return new TreeItem();
     }
 }

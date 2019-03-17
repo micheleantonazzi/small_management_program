@@ -4,7 +4,9 @@ import javafx.scene.control.TreeView;
 import small_management_program.controller.Observer;
 import small_management_program.controller.Subject;
 import small_management_program.controller.UpdateException;
+import small_management_program.controller.left.TreeViewSubject;
 import small_management_program.model.database.DatabaseException;
+import small_management_program.view.graphicutilities.TreeItemWhereParameters;
 
 import java.sql.SQLException;
 
@@ -12,7 +14,12 @@ public class TreeViewObserver extends TreeView implements Observer {
 
     private static TreeViewObserver instance;
 
-    private TreeViewObserver(){}
+    private TreeViewObserver(){
+        this.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->{
+            if(newValue != null)
+                TreeViewSubject.getInstance().setWhereParameters(((TreeItemWhereParameters) newValue).getWhereParameters());
+        });
+    }
 
     public static TreeViewObserver getInstance(){
         if (instance == null)
@@ -22,6 +29,10 @@ public class TreeViewObserver extends TreeView implements Observer {
 
     @Override
     public void update(Subject subject) throws DatabaseException, SQLException {
-        this.setRoot(subject.getTreeViewItems());
+        try {
+            this.setRoot(subject.getTreeViewItems());
+        }
+        catch (UpdateException ex){}
+
     }
 }
