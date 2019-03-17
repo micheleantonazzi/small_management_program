@@ -32,6 +32,14 @@
     -fx-graphic: url(../images/icons/account-edit.png);
 }
 
+#mainViewContainer #menuItemBill > .label{
+    -fx-graphic: url(../images/icons/credit-card.png);
+}
+
+#mainViewContainer #menuItemAddBill > .label{
+    -fx-graphic: url(../images/icons/credit-card-plus.png);
+}
+
 /*############## STAGE DATABASE ###############*/
 #stageDatabaseContainer #buttonConnection{
     -fx-graphic: url(../images/icons/database-ok.png);
@@ -90,4 +98,14 @@
 
 #stageModifyAdministratorContainer #buttonExit{
     -fx-graphic: url(../images/icons/exit-to-app.png);
+}
+
+/*############## STAGE ADD BILL ###############*/
+
+#stageAddBillContainer #buttonExit{
+    -fx-graphic: url(../images/icons/exit-to-app.png);
+}
+
+#stageAddBillContainer #buttonAddBill{
+    -fx-graphic: url(../images/icons/credit-card-plus.png);
 }

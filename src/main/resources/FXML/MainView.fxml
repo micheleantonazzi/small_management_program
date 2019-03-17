@@ -33,6 +33,11 @@
                         <MenuItem id="menuItemModifyCondo" mnemonicParsing="false" onAction="#showStageModifyCondo" text="Modifica Condominio" />
                     </items>
                   </Menu>
+                  <Menu id="menuItemBill" mnemonicParsing="false" text="Fatturato">
+                    <items>
+                      <MenuItem id="menuItemAddBill" fx:id="menuItemAddBill" mnemonicParsing="false" onAction="#showStageAddBill" text="Aggiungi Fatturato" />
+                    </items>
+                  </Menu>
                   <Menu id="menuItemAdministrator" mnemonicParsing="false" text="Amministratori">
                     <items>
                       <MenuItem id="menuItemAddAdministrator" fx:id="menuItemAddAdministrator" mnemonicParsing="false" onAction="#showStageAddAdministrator" text="Aggiungi Amministratore" />
