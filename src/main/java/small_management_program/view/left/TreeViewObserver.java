@@ -5,6 +5,7 @@ import small_management_program.controller.Observer;
 import small_management_program.controller.Subject;
 import small_management_program.controller.UpdateException;
 import small_management_program.controller.left.TreeViewSubject;
+import small_management_program.controller.parameters.WhereParameters;
 import small_management_program.model.database.DatabaseException;
 import small_management_program.view.graphicutilities.TreeItemWhereParameters;
 
@@ -31,8 +32,12 @@ public class TreeViewObserver extends TreeView implements Observer {
     public void update(Subject subject) throws DatabaseException, SQLException {
         try {
             this.setRoot(subject.getTreeViewItems());
+
         }
         catch (UpdateException ex){}
+    }
 
+    public WhereParameters getWhereParameters(){
+        return ((TreeItemWhereParameters) this.getSelectionModel().getSelectedItem()).getWhereParameters();
     }
 }

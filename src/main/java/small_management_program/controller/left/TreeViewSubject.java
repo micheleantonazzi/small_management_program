@@ -7,6 +7,7 @@ import small_management_program.controller.left.itemstrategy.TreeViewItemStrateg
 import small_management_program.controller.parameters.WhereParameters;
 import small_management_program.model.database.DatabaseException;
 import small_management_program.view.graphicutilities.TreeItemWhereParameters;
+import small_management_program.view.left.TreeViewObserver;
 
 import java.sql.SQLException;
 
@@ -64,11 +65,14 @@ public class TreeViewSubject extends Subject {
     }
 
     public void updateAll(){
+        TreeViewObserver.getInstance().getSelectionModel().getSelectedItem();
         if (this.treeViewItemStrategy != null)
             setItemStrategy(this.treeViewItemStrategy);
 
         //Chiamo il controller perché li è inserito il controllo per verificare se la tabella è ancora nulla
 
         TreeViewSubject.getInstance().setWhereParameters(this.whereParameters);
+
+
     }
 }

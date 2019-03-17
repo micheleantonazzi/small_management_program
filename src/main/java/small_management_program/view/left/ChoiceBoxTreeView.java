@@ -48,6 +48,7 @@ public class ChoiceBoxTreeView extends ChoiceBox{
 
         @Override
         public void execute(){
+
             TreeViewSubject.getInstance().setItemStrategy(new TreeViewItemAllCondo());
         }
     }

@@ -10,6 +10,7 @@ import small_management_program.controller.left.TreeViewSubject;
 import small_management_program.controller.right.condos.DataCondos;
 import small_management_program.view.Command;
 import small_management_program.view.MainViewController;
+import small_management_program.view.left.TreeViewObserver;
 import small_management_program.view.right.condos.TableViewCondos;
 
 public class ChoiceBoxTableView extends ChoiceBox {
@@ -46,7 +47,10 @@ public class ChoiceBoxTableView extends ChoiceBox {
             TreeViewSubject.getInstance().attach(DataCondos.getInstance());
             DataCondos.getInstance().attach(TableViewCondos.getInstance());
             ChoiceBoxTableView.this.mainViewController.setRightComponents(TableViewCondos.getInstance(), new HBox());
-            //ChoiceBoxTableView.this.view.setTreeViewItemSelected();
+            if(TreeViewObserver.getInstance().getSelectionModel().getSelectedItem() == null)
+                TreeViewObserver.getInstance().getSelectionModel().selectFirst();
+            else
+                TreeViewSubject.getInstance().setWhereParameters(TreeViewObserver.getInstance().getWhereParameters());
         }
     }
 
