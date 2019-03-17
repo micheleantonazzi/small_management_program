@@ -5,12 +5,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import small_management_program.controller.left.TreeViewSubject;
-import small_management_program.controller.right.condos.DataCondos;
 import small_management_program.view.annotation.AnnotationShowFXML;
 import small_management_program.view.left.ChoiceBoxTreeView;
 import small_management_program.view.left.TreeViewObserver;
@@ -76,15 +74,15 @@ public class MainViewController implements Initializable {
     @AnnotationShowFXML(FXMLName = "/FXML/stages/StageDatabase.fxml", Tilte = "Database")
     public void showStageDatabase(){}
 
-    @AnnotationShowFXML(FXMLName = "/FXML/stages/StageAddCondo.fxml", Tilte = "Aggiungi condominio")
+    @AnnotationShowFXML(FXMLName = "/FXML/stages/condo/StageAddCondo.fxml", Tilte = "Aggiungi condominio")
     public void showStageAddCondo(){}
 
-    @AnnotationShowFXML(FXMLName = "/FXML/stages/StageAddAdministrator.fxml", Tilte = "Aggiungi Amministratore")
+    @AnnotationShowFXML(FXMLName = "/FXML/stages/administrator/StageAddAdministrator.fxml", Tilte = "Aggiungi Amministratore")
     public void showStageAddAdministrator(){}
 
-    @AnnotationShowFXML(FXMLName = "/FXML/stages/StageModifyAdministrator.fxml", Tilte = "Modifica Amministratore")
+    @AnnotationShowFXML(FXMLName = "/FXML/stages/administrator/StageModifyAdministrator.fxml", Tilte = "Modifica Amministratore")
     public void showStageModifyAdministrator(){}
 
-    @AnnotationShowFXML(FXMLName = "/FXML/stages/StageModifyCondo.fxml", Tilte = "Modifica Condominio")
+    @AnnotationShowFXML(FXMLName = "/FXML/stages/condo/StageModifyCondo.fxml", Tilte = "Modifica Condominio")
     public void showStageModifyCondo(){}
 }

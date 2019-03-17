@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="stageModifyCondoContainer" prefHeight="441.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="small_management_program.view.stages.StageModifyCondoController">
+<AnchorPane id="stageModifyCondoContainer" prefHeight="441.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="small_management_program.view.stages.condo.StageModifyCondoController">
     <children>
         <GridPane layoutX="6.0" prefHeight="360.0" prefWidth="363.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
             <columnConstraints>

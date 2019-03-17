@@ -1,4 +1,4 @@
-package small_management_program.view.stages;
+package small_management_program.view.stages.administrator;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

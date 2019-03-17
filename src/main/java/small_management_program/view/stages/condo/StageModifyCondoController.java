@@ -1,4 +1,4 @@
-package small_management_program.view.stages;
+package small_management_program.view.stages.condo;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -282,7 +282,7 @@ public class StageModifyCondoController implements Initializable {
         condoIdModify = id;
     }
 
-    @AnnotationShowFXML(FXMLName = "/FXML/stages/StageModifyCondo.fxml", Tilte = "Modifica Condominio")
+    @AnnotationShowFXML(FXMLName = "/FXML/stages/condo/StageModifyCondo.fxml", Tilte = "Modifica Condominio")
     public static void show(){}
 
     public void closeStage(ActionEvent event){}

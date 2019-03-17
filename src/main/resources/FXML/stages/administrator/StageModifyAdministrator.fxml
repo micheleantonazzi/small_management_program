@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="stageModifyAdministratorContainer" prefHeight="246.0" prefWidth="423.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="small_management_program.view.stages.StageModifyAdministratorController">
+<AnchorPane id="stageModifyAdministratorContainer" prefHeight="246.0" prefWidth="423.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="small_management_program.view.stages.administrator.StageModifyAdministratorController">
    <children>
       <GridPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>

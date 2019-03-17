@@ -11,7 +11,7 @@ import small_management_program.model.database.Database;
 import small_management_program.model.database.DatabaseException;
 import small_management_program.model.databaseclasses.CondoRepresentation;
 import small_management_program.view.graphicutilities.GraphicUtilities;
-import small_management_program.view.stages.StageModifyCondoController;
+import small_management_program.view.stages.condo.StageModifyCondoController;
 
 import java.sql.SQLException;
 
