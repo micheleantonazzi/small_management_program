@@ -14,7 +14,7 @@ import small_management_program.controller.queries.Query;
 import small_management_program.controller.queries.QueryWithResults;
 import small_management_program.controller.queries.administrator.AdministratorQueryWithResults;
 import small_management_program.controller.queries.administrator.AdministratorSelectAll;
-import small_management_program.controller.queries.bill.BillSelectWithParameter;
+import small_management_program.controller.queries.billing.BillingSelectWithParameter;
 import small_management_program.controller.queries.condo.CondoDelete;
 import small_management_program.controller.queries.condo.CondoModify;
 import small_management_program.controller.queries.condo.CondoSelectAll;
@@ -129,7 +129,7 @@ public class StageModifyCondoController implements Initializable {
                         //Se ci sono fatture diabilito la possibilità di cambiare mese di chiusura dell'esercizio,
                         //altrimenti verranno introdotti errori
 
-                        QueryWithResults billingSelect = new BillSelectWithParameter("id_condo=" + idCondo);
+                        QueryWithResults billingSelect = new BillingSelectWithParameter("id_condo=" + idCondo);
                         Database.getInstance().executeQuery(billingSelect);
                         if (billingSelect.getResults().keySet().size() > 0)
                             this.choiceBoxMonths.setDisable(true);

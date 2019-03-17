@@ -9,10 +9,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
 
 public class Database {
     private Connection connection = null;
     private static Database instance;
+    private LinkedList<Query> listRevertQueries = new LinkedList<>();
 
     private Database() {}
 
@@ -86,5 +88,31 @@ public class Database {
             }
             throw query.getException();
         }
+    }
+
+    public void saveChanges(){
+        this.listRevertQueries.clear();
+    }
+
+    public void discardChanges(){
+        int i = this.listRevertQueries.size();
+        for(; i > 0; --i){
+            try{
+                this.executeQuery(this.listRevertQueries.pollLast());
+            }
+            catch (DatabaseException exception){}
+            catch (SQLException ex){}
+        }
+    }
+
+    public boolean discardLastChange(){
+        if(this.listRevertQueries.size() > 0){
+            try{
+                this.executeQuery(this.listRevertQueries.pollLast());
+            }
+            catch (DatabaseException exception){}
+            catch (SQLException ex){}
+        }
+        return this.listRevertQueries.size() == 0;
     }
 }
