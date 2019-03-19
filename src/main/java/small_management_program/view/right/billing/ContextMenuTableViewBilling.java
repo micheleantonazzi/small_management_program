@@ -2,7 +2,7 @@
  * Michele Antonazzi
  */
 
-package small_management_program.view.right.bill;
+package small_management_program.view.right.billing;
 
 import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
@@ -21,7 +21,7 @@ import small_management_program.view.graphicutilities.GraphicUtilities;
 
 import java.sql.SQLException;
 
-public class ContextMenuTableViewBill extends ContextMenu {
+public class ContextMenuTableViewBilling extends ContextMenu {
 
     private TableViewBilling table;
     private TableRow<BillingRepresentation> row;
@@ -31,7 +31,7 @@ public class ContextMenuTableViewBill extends ContextMenu {
     private MenuItem menuItemRemoveLastBill;
     private MenuItem menuItemRemoveBill;
 
-    public ContextMenuTableViewBill(TableViewBilling table, TableRow<BillingRepresentation> row) {
+    public ContextMenuTableViewBilling(TableViewBilling table, TableRow<BillingRepresentation> row) {
 
         this.table = table;
         this.row = row;

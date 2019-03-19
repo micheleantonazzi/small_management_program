@@ -13,7 +13,7 @@ import small_management_program.controller.right.condos.DataCondos;
 import small_management_program.view.Command;
 import small_management_program.view.MainViewController;
 import small_management_program.view.left.TreeViewObserver;
-import small_management_program.view.right.bill.TableViewBilling;
+import small_management_program.view.right.billing.TableViewBilling;
 import small_management_program.view.right.condos.TableViewCondos;
 
 import java.util.ArrayList;

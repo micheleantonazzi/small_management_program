@@ -2,7 +2,7 @@
  * Michele Antonazzi
  */
 
-package small_management_program.view.right.bill;
+package small_management_program.view.right.billing;
 
 import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
@@ -169,12 +169,12 @@ public class TableViewBilling extends TableView<BillingRepresentation> implement
         @Override
         public TableRow<BillingRepresentation> call(TableView<BillingRepresentation> tableView) {
             final TableRow<BillingRepresentation> row = new TableRow<>();
-            final ContextMenuTableViewBill rowMenu = new ContextMenuTableViewBill(TableViewBilling.this, row);
+            final ContextMenuTableViewBilling rowMenu = new ContextMenuTableViewBilling(TableViewBilling.this, row);
             //Mostra il menu solo se l'item non è nullo
             row.contextMenuProperty().bind(
                     Bindings.when(Bindings.isNotNull(row.itemProperty()))
                             .then(rowMenu)
-                            .otherwise((ContextMenuTableViewBill) null));
+                            .otherwise((ContextMenuTableViewBilling) null));
 
             return row;
         }
