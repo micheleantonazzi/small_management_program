@@ -113,3 +113,13 @@
 #stageAddBillContainer #buttonAddBill{
     -fx-graphic: url(../images/icons/credit-card-plus.png);
 }
+
+/*############## STAGE ADD BILL MONTH ###############*/
+
+#stageBillMonthContainer #buttonExit{
+    -fx-graphic: url(../images/icons/exit-to-app.png);
+}
+
+#stageBillMonthContainer #buttonAddBillMonth{
+    -fx-graphic: url(../images/icons/bill-month.png);
+}
