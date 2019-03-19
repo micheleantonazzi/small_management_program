@@ -58,7 +58,7 @@ public class ContextMenuTableViewBill extends ContextMenu {
 
     private MenuItem getItemMadeBillInMonth(){
         MenuItem itemMadeBillInMonth = new MenuItem("Crea fattura in un mese");
-        itemMadeBillInMonth.setGraphic(new ImageView(this.getClass().getResource("/images/icons/calendar-plus.png").toString()));
+        itemMadeBillInMonth.setGraphic(new ImageView(this.getClass().getResource("/images/icons/bill-month.png").toString()));
         itemMadeBillInMonth.setOnAction(event-> {
             event.consume();
             /*new StageBillingInMonth(this.row.getItem()).showAndWait();
