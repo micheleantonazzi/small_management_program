@@ -40,6 +40,10 @@
     -fx-graphic: url(../images/icons/credit-card-plus.png);
 }
 
+#mainViewContainer #menuItemBillMonth > .label{
+    -fx-graphic: url(../images/icons/bill-month.png);
+}
+
 /*############## STAGE DATABASE ###############*/
 #stageDatabaseContainer #buttonConnection{
     -fx-graphic: url(../images/icons/database-ok.png);

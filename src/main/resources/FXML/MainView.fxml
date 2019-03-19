@@ -36,6 +36,7 @@
                   <Menu id="menuItemBill" mnemonicParsing="false" text="Fatturato">
                     <items>
                       <MenuItem id="menuItemAddBill" fx:id="menuItemAddBill" mnemonicParsing="false" onAction="#showStageAddBill" text="Aggiungi Fatturato" />
+                        <MenuItem id="menuItemBillMonth" mnemonicParsing="false" onAction="#showStageBillMonth" text="Crea fattura per un mese" />
                     </items>
                   </Menu>
                   <Menu id="menuItemAdministrator" mnemonicParsing="false" text="Amministratori">

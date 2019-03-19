@@ -88,4 +88,7 @@ public class MainViewController implements Initializable {
 
     @AnnotationShowFXML(FXMLName = "/FXML/stages/billing/StageAddBilling.fxml", Tilte = "Aggiungi fatturato")
     public void showStageAddBill(){}
+
+    @AnnotationShowFXML(FXMLName = "/FXML/stages/billing/StageBillMonth.fxml", Tilte = "Crea fattura per un mese")
+    public void showStageBillMonth(){}
 }
