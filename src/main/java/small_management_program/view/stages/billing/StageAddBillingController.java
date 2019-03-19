@@ -1,4 +1,4 @@
-package small_management_program.view.stages.bill;
+package small_management_program.view.stages.billing;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,7 +20,7 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
-public class StageAddBillController implements Initializable {
+public class StageAddBillingController implements Initializable {
 
     @FXML
     private ChoiceBox choiceBoxCondos;
