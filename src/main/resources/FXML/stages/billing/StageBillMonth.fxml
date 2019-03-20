@@ -34,8 +34,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button id="buttonAddBillMonth" fx:id="buttonAddBillMonth" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Crea fattura" GridPane.columnIndex="1" />
-                  <Button id="buttonExit" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Esci" />
+                  <Button id="buttonAddBillMonth" fx:id="buttonAddBillMonth" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#stageGoal" text="Crea fattura" GridPane.columnIndex="1" />
+                  <Button id="buttonExit" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#closeStage" text="Esci" />
                </children>
             </GridPane>
          </children>

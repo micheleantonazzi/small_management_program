@@ -5,6 +5,7 @@ import small_management_program.controller.queries.Query;
 import small_management_program.controller.queries.QueryRevert;
 import small_management_program.controller.queries.QueryWithError;
 import small_management_program.controller.queries.QueryWithResults;
+import small_management_program.view.right.billing.TableViewBilling;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -79,6 +80,7 @@ public class Database {
             if(query instanceof QueryRevert){
                 QueryRevert queryRevert = (QueryRevert) query;
                 this.listRevertQueries.add(queryRevert.getQueryRevert());
+                TableViewBilling.getInstance().disableButtons(false);
             }
         }
         catch (CommunicationsException exception){

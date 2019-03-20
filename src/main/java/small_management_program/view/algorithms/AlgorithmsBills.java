@@ -79,7 +79,10 @@ public class AlgorithmsBills {
     }
 
     //Questo metodo viene chiamato direttamente se è necessario andare ad effettuare una fattura in un mese di un anno specifico
-    private void createBill(BillingRepresentation billingRepresentation, int billingYear, int billingMonth, boolean showAlert){
+    public boolean createBill(BillingRepresentation billingRepresentation, int billingYear, int billingMonth, boolean showAlert){
+
+        boolean billed = false;
+
 
         Calendar condoCalendar = Calendar.getInstance();
         condoCalendar.set(Integer.valueOf(billingRepresentation.getYear()), Months.getInstance().getMonthNumber(billingRepresentation.getMonth()), 1);
@@ -129,6 +132,7 @@ public class AlgorithmsBills {
         }
         try{
             Database.getInstance().executeQuery(createNewBill);
+            billed = true;
         }
         catch (DatabaseException exception){
             GraphicUtilities.getInstance().showAlertError(exception);
@@ -136,5 +140,6 @@ public class AlgorithmsBills {
         catch (SQLException exception){
             GraphicUtilities.getInstance().showAlertError("Operazione non riuscita", exception.getMessage());
         }
+        return billed;
     }
 }
