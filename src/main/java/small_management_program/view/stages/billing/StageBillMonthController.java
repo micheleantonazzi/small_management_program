@@ -17,14 +17,16 @@ import small_management_program.model.database.Database;
 import small_management_program.model.database.DatabaseException;
 import small_management_program.model.databaseclasses.BillingRepresentation;
 import small_management_program.view.algorithms.AlgorithmsBills;
+import small_management_program.view.annotation.AnnotationShowFXML;
 import small_management_program.view.graphicutilities.ChoiceBoxItemId;
 import small_management_program.view.graphicutilities.GraphicUtilities;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
-public class StageBillMonth implements Initializable {
+public class StageBillMonthController implements Initializable {
 
     @FXML
     private ChoiceBox choiceBoxCondos;
@@ -38,6 +40,8 @@ public class StageBillMonth implements Initializable {
     private BillingRepresentation billingRepresentation;
 
     private String month;
+
+    private static Integer idCondo = null;
 
     private ObservableList getMonths(BillingRepresentation billingRepresentation){
         ObservableList<ChoiceBoxItemId> months = FXCollections.observableArrayList();
@@ -124,6 +128,19 @@ public class StageBillMonth implements Initializable {
 
         this.choiceBoxMonths.setDisable(true);
         this.buttonAddBillMonth.setDisable(true);
+
+        if (idCondo != null) {
+            var condos = this.choiceBoxCondos.getItems();
+            boolean found = false;
+            for(Iterator<ChoiceBoxItemId> iterator = condos.iterator(); iterator.hasNext() && !found;){
+                ChoiceBoxItemId item = iterator.next();
+                if(idCondo == item.hashCode()){
+                    found = true;
+                    this.choiceBoxCondos.getSelectionModel().select(item);
+                }
+            }
+            idCondo = null;
+        }
     }
 
 
@@ -143,6 +160,13 @@ public class StageBillMonth implements Initializable {
             this.choiceBoxMonths.setItems(FXCollections.observableArrayList());
         }
 
+    }
+
+    @AnnotationShowFXML(FXMLName = "/FXML/stages/billing/StageBillMonth.fxml", Tilte = "Crea fattura per un mese")
+    public static void show(){}
+
+    public static void setIdCondo(int idCondo){
+        StageBillMonthController.idCondo = idCondo;
     }
 
     public void closeStage(ActionEvent event){}

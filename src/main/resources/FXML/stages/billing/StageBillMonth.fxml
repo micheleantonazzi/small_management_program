@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="stageBillMonthContainer" prefHeight="183.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="small_management_program.view.stages.billing.StageBillMonth">
+<AnchorPane id="stageBillMonthContainer" prefHeight="183.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="small_management_program.view.stages.billing.StageBillMonthController">
    <children>
       <GridPane layoutX="6.0" layoutY="6.0" prefHeight="164.0" prefWidth="324.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>

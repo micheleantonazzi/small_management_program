@@ -18,6 +18,8 @@ import small_management_program.model.database.DatabaseException;
 import small_management_program.model.databaseclasses.BillingRepresentation;
 import small_management_program.view.algorithms.AlgorithmsBills;
 import small_management_program.view.graphicutilities.GraphicUtilities;
+import small_management_program.view.stages.billing.StageBillMonthController;
+import small_management_program.view.stages.condo.StageModifyCondoController;
 
 import java.sql.SQLException;
 
@@ -61,10 +63,10 @@ public class ContextMenuTableViewBilling extends ContextMenu {
         itemMadeBillInMonth.setGraphic(new ImageView(this.getClass().getResource("/images/icons/bill-month.png").toString()));
         itemMadeBillInMonth.setOnAction(event-> {
             event.consume();
-            /*new StageBillingInMonth(this.row.getItem()).showAndWait();
-            ControllerFacade.getInstance().updateAll();
+            StageBillMonthController.setIdCondo(this.row.getItem().getId());
+            StageBillMonthController.show();
             this.table.disableButtons(false);
-            */
+
         });
 
         return itemMadeBillInMonth;
