@@ -1,8 +1,8 @@
-package small_management_program.controller.queries.bill;
+package small_management_program.controller.queries.billing;
 
 import small_management_program.controller.queries.condo.CondoSelectAll;
 
-public class BillSelectCondos extends CondoSelectAll {
+public class BillingSelectCondos extends CondoSelectAll {
 
     @Override
     public String getQuery(){

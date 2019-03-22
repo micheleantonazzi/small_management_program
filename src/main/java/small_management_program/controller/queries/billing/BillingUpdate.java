@@ -1,4 +1,4 @@
-package small_management_program.controller.queries.bill;
+package small_management_program.controller.queries.billing;
 
 import small_management_program.controller.queries.Query;
 import small_management_program.model.database.DatabaseException;
@@ -9,13 +9,13 @@ import small_management_program.model.database.DatabaseException;
  * @author Michele Antonazzi
  */
 
-public class BillUpdate implements Query {
+public class BillingUpdate implements Query {
 
     private int idCondo;
     private int year;
     private double total;
 
-    public BillUpdate(int idCondo, int year, double total) {
+    public BillingUpdate(int idCondo, int year, double total) {
         this.idCondo = idCondo;
         this.year = year;
         this.total = total;
@@ -30,6 +30,6 @@ public class BillUpdate implements Query {
     @Override
     public DatabaseException getException() {
         return new DatabaseException("Errore database", "Attenzione, impossibile modificare la fatturazione.\n" +
-                "Assicurarsi di non aver assegnato un anno già utilizzato per questo condominio.");
+                "Assicurarsi di non aver assegnato un anno gi\u00E0 utilizzato per questo condominio.");
     }
 }

@@ -1,4 +1,4 @@
-package small_management_program.controller.queries.bill;
+package small_management_program.controller.queries.billing;
 
 import small_management_program.controller.DuplicateMap;
 import small_management_program.controller.queries.QueryWithResults;
@@ -15,7 +15,7 @@ import java.sql.SQLException;
  *
  */
 
-public class BillCondosSelectLast extends QueryWithResults {
+public class BillingCondosSelectLast extends QueryWithResults {
 
 
 

@@ -6,16 +6,24 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.HBox;
+import small_management_program.controller.Observer;
 import small_management_program.controller.left.TreeViewSubject;
+import small_management_program.controller.right.billing.DataBilling;
 import small_management_program.controller.right.condos.DataCondos;
 import small_management_program.view.Command;
 import small_management_program.view.MainViewController;
 import small_management_program.view.left.TreeViewObserver;
+import small_management_program.view.right.billing.TableViewBilling;
 import small_management_program.view.right.condos.TableViewCondos;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ChoiceBoxTableView extends ChoiceBox {
 
     private ObservableList<Command> items = FXCollections.observableArrayList();
+    private List<Observer> observers = new ArrayList<>(Arrays.asList(DataCondos.getInstance(), DataBilling.getInstance()));
 
     MainViewController mainViewController;
 
@@ -24,15 +32,21 @@ public class ChoiceBoxTableView extends ChoiceBox {
         this.mainViewController = mainViewController;
 
         this.items.add(new TableViewCondosCommand());
-        //this.items.add(new TableViewBillingCommand());
+        this.items.add(new TableViewBillingCommand());
         this.setItems(items);
 
         this.getSelectionModel().selectedItemProperty().addListener((ChangeListener<Command>) (ObservableValue<? extends Command> observableValue, Command oldCommand, Command newCommand) -> {
             if(newCommand != null){
+                this.detachAll();
                 newCommand.execute();
             }
         });
 
+    }
+
+    private void detachAll(){
+        for (Observer observer : observers)
+            TreeViewSubject.getInstance().detach(observer);
     }
 
     private class TableViewCondosCommand implements Command{
@@ -54,7 +68,7 @@ public class ChoiceBoxTableView extends ChoiceBox {
         }
     }
 
-    /*private class TableViewBillingCommand implements Command{
+    private class TableViewBillingCommand implements Command{
 
         @Override
         public String toString(){
@@ -63,13 +77,14 @@ public class ChoiceBoxTableView extends ChoiceBox {
 
         @Override
         public void execute(){
-            DataBilling dataBilling = new DataBilling();
-            ControllerFacade.getInstance().setTableViewData(dataBilling);
-            TableViewBilling tableViewBilling = new TableViewBilling();
-            dataBilling.attach(tableViewBilling);
-            ChoiceBoxTableView.this.view.setRightComponents(tableViewBilling, tableViewBilling.getActions());
-            ChoiceBoxTableView.this.view.setTreeViewItemSelected();
+            TreeViewSubject.getInstance().attach(DataBilling.getInstance());
+            DataBilling.getInstance().attach(TableViewBilling.getInstance());
+            ChoiceBoxTableView.this.mainViewController.setRightComponents(TableViewBilling.getInstance(), TableViewBilling.getInstance().getActions());
+            if(TreeViewObserver.getInstance().getSelectionModel().getSelectedItem() == null)
+                TreeViewObserver.getInstance().getSelectionModel().selectFirst();
+            else
+                TreeViewSubject.getInstance().setWhereParameters(TreeViewObserver.getInstance().getWhereParameters());
         }
     }
-    */
+
 }

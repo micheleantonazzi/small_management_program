@@ -65,14 +65,15 @@ public class TreeViewSubject extends Subject {
     }
 
     public void updateAll(){
-        TreeViewObserver.getInstance().getSelectionModel().getSelectedItem();
-        if (this.treeViewItemStrategy != null)
-            setItemStrategy(this.treeViewItemStrategy);
+            WhereParameters whereParametersOld = this.whereParameters;
+            if (this.treeViewItemStrategy != null)
+                setItemStrategy(this.treeViewItemStrategy);
 
-        //Chiamo il controller perché li è inserito il controllo per verificare se la tabella è ancora nulla
+            //Chiamo il controller perché li è inserito il controllo per verificare se la tabella è ancora nulla
 
-        TreeViewSubject.getInstance().setWhereParameters(this.whereParameters);
-
-
+            if(whereParametersOld != null)
+                TreeViewSubject.getInstance().setWhereParameters(whereParametersOld);
+            else if(this.whereParameters != null)
+                TreeViewSubject.getInstance().setWhereParameters(this.whereParameters);
     }
 }

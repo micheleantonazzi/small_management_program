@@ -52,5 +52,3 @@ javafx {
 
 // Define the main class for the application
 mainClassName = 'small_management_program.Launcher'
-
-

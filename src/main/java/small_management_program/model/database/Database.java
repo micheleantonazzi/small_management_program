@@ -2,17 +2,21 @@ package small_management_program.model.database;
 
 import com.mysql.cj.jdbc.exceptions.CommunicationsException;
 import small_management_program.controller.queries.Query;
+import small_management_program.controller.queries.QueryRevert;
 import small_management_program.controller.queries.QueryWithError;
 import small_management_program.controller.queries.QueryWithResults;
+import small_management_program.view.right.billing.TableViewBilling;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
 
 public class Database {
     private Connection connection = null;
     private static Database instance;
+    private LinkedList<Query> listRevertQueries = new LinkedList<>();
 
     private Database() {}
 
@@ -73,11 +77,16 @@ public class Database {
                     statement.execute(queryWithError.commit());
                 }
             }
+            if(query instanceof QueryRevert){
+                QueryRevert queryRevert = (QueryRevert) query;
+                this.listRevertQueries.add(queryRevert.getQueryRevert());
+                TableViewBilling.getInstance().disableButtons(false);
+            }
         }
         catch (CommunicationsException exception){
             this.connection.close();
             this.connection = null;
-            throw new DatabaseException("Errore di connessione", "Attenzione, il database non è più raggiungibile. Controlla la connessione.");
+            throw new DatabaseException("Errore di connessione", "Attenzione, il database non \u00E8 più raggiungibile. Controlla la connessione.");
         }
         catch (SQLException exception){
             if(query instanceof QueryWithError){
@@ -86,5 +95,31 @@ public class Database {
             }
             throw query.getException();
         }
+    }
+
+    public void saveChanges(){
+        this.listRevertQueries.clear();
+    }
+
+    public void discardChanges(){
+        int i = this.listRevertQueries.size();
+        for(; i > 0; --i){
+            try{
+                this.executeQuery(this.listRevertQueries.pollLast());
+            }
+            catch (DatabaseException exception){}
+            catch (SQLException ex){}
+        }
+    }
+
+    public boolean discardLastChange(){
+        if(this.listRevertQueries.size() > 0){
+            try{
+                this.executeQuery(this.listRevertQueries.pollLast());
+            }
+            catch (DatabaseException exception){}
+            catch (SQLException ex){}
+        }
+        return this.listRevertQueries.size() == 0;
     }
 }

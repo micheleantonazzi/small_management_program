@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public abstract class QueryParameters {
 
+    private boolean setIdentifier = false;
+
     private ArrayList<String> parameters = new ArrayList<>(1);
 
     public QueryParameters(String parameter){
@@ -27,13 +29,14 @@ public abstract class QueryParameters {
     }
 
     public void setIdentifier(String s, int from, int to){
-        if(from <= to && from >= 0){
+        if(from <= to && from >= 0 && !this.setIdentifier){
             for(int i = from; from < this.parameters.size() && i < to; ++i){
                 String old = this.parameters.get(i);
                 if(!old.equals("1 = 1")){
                     this.parameters.set(i, s + "." + old);
                 }
             }
+            this.setIdentifier = true;
         }
     }
 

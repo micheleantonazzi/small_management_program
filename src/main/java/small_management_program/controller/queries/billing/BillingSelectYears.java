@@ -1,5 +1,5 @@
 
-package small_management_program.controller.queries.bill;
+package small_management_program.controller.queries.billing;
 
 import small_management_program.controller.DuplicateMap;
 import small_management_program.controller.queries.QueryWithResults;
@@ -14,11 +14,11 @@ import java.sql.SQLException;
  *
  * @author Michele Antonazzi
  */
-public class BillSelectYears extends QueryWithResults {
+public class BillingSelectYears extends QueryWithResults {
 
     private int idCondo;
 
-    public BillSelectYears(int idCondo){
+    public BillingSelectYears(int idCondo){
         this.idCondo = idCondo;
     }
 

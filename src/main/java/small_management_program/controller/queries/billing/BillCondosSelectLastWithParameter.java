@@ -1,5 +1,5 @@
 
-package small_management_program.controller.queries.bill;
+package small_management_program.controller.queries.billing;
 
 import small_management_program.controller.parameters.WhereParameters;
 
@@ -11,7 +11,7 @@ import small_management_program.controller.parameters.WhereParameters;
  *
  */
 
-public class BillCondosSelectLastWithParameter extends BillCondosSelectLast {
+public class BillCondosSelectLastWithParameter extends BillingCondosSelectLast {
 
     private WhereParameters whereParameters;
 
