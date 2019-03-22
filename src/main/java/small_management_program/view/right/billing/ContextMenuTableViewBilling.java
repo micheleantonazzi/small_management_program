@@ -18,7 +18,9 @@ import small_management_program.model.database.DatabaseException;
 import small_management_program.model.databaseclasses.BillingRepresentation;
 import small_management_program.view.algorithms.AlgorithmsBills;
 import small_management_program.view.graphicutilities.GraphicUtilities;
+import small_management_program.view.stages.billing.StageAddBillingController;
 import small_management_program.view.stages.billing.StageBillMonthController;
+import small_management_program.view.stages.condo.StageModifyCondoController;
 
 import java.sql.SQLException;
 
@@ -42,7 +44,17 @@ public class ContextMenuTableViewBilling extends ContextMenu {
         this.menuItemRemoveLastBill = this.getItemRemoveLastBill();
         this.menuItemRemoveBill = this.getItemRemoveBill();
 
-        this.getItems().addAll(this.menuItemMadeBill, this.menuItemMadeBillInMonth, this.menuItemRemoveLastBill, this.menuItemRemoveBill);
+        this.getItems().addAll(this.getItemCreateBilling(), this.menuItemMadeBill, this.menuItemMadeBillInMonth, this.menuItemRemoveLastBill, this.menuItemRemoveBill);
+    }
+
+    private MenuItem getItemCreateBilling(){
+        MenuItem itemCreateBilling = new MenuItem("Aggiungi fatturato");
+        itemCreateBilling.setGraphic(new ImageView(this.getClass().getResource("/images/icons/credit-card-plus.png").toString()));
+        itemCreateBilling.setOnAction(event-> {
+            StageAddBillingController.setIdCondo(row.getItem().getId());
+            StageAddBillingController.show();
+        });
+        return itemCreateBilling;
     }
 
     private MenuItem getItemMadeBill(){
