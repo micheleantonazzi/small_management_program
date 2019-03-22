@@ -58,10 +58,13 @@ public class AlgorithmsBills {
         Calendar condoCalendar = Calendar.getInstance();
         condoCalendar.set(Integer.valueOf(billingRepresentation.getYear()),
                 Months.getInstance().getMonthNumber(billingRepresentation.getMonth()), 1);
+        condoCalendar.getTime();
 
         Calendar billingCalendar = Calendar.getInstance();
         billingCalendar.set(Calendar.getInstance().get(Calendar.YEAR), month, 2);
-        return condoCalendar.before(billingCalendar) && !billingRepresentation.isMonthBilled(month);
+        billingCalendar.getTime();
+        return Calendar.getInstance().get(Calendar.YEAR) > Integer.valueOf(billingRepresentation.getYear()) ?
+                condoCalendar.before(billingCalendar) : !billingRepresentation.isMonthBilled(month);
     }
 
     //Questo metodo viene chiamato quando si effettua una fattura alla data corrente, infatti passa al metodo sottostante i valori di anno e mese correnti
