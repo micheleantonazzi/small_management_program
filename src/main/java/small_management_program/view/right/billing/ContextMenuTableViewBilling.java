@@ -19,7 +19,6 @@ import small_management_program.model.databaseclasses.BillingRepresentation;
 import small_management_program.view.algorithms.AlgorithmsBills;
 import small_management_program.view.graphicutilities.GraphicUtilities;
 import small_management_program.view.stages.billing.StageBillMonthController;
-import small_management_program.view.stages.condo.StageModifyCondoController;
 
 import java.sql.SQLException;
 
