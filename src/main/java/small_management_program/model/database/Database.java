@@ -86,7 +86,7 @@ public class Database {
         catch (CommunicationsException exception){
             this.connection.close();
             this.connection = null;
-            throw new DatabaseException("Errore di connessione", "Attenzione, il database non è più raggiungibile. Controlla la connessione.");
+            throw new DatabaseException("Errore di connessione", "Attenzione, il database non \u00E8 più raggiungibile. Controlla la connessione.");
         }
         catch (SQLException exception){
             if(query instanceof QueryWithError){

@@ -30,6 +30,6 @@ public class BillingUpdate implements Query {
     @Override
     public DatabaseException getException() {
         return new DatabaseException("Errore database", "Attenzione, impossibile modificare la fatturazione.\n" +
-                "Assicurarsi di non aver assegnato un anno già utilizzato per questo condominio.");
+                "Assicurarsi di non aver assegnato un anno gi\u00E0 utilizzato per questo condominio.");
     }
 }
