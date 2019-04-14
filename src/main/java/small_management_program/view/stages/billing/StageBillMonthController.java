@@ -130,7 +130,7 @@ public class StageBillMonthController implements Initializable {
         this.buttonAddBillMonth.setDisable(true);
 
         if (idCondo != null) {
-            var condos = this.choiceBoxCondos.getItems();
+            ObservableList condos = this.choiceBoxCondos.getItems();
             boolean found = false;
             for(Iterator<ChoiceBoxItemId> iterator = condos.iterator(); iterator.hasNext() && !found;){
                 ChoiceBoxItemId item = iterator.next();

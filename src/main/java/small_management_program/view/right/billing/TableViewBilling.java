@@ -138,7 +138,7 @@ public class TableViewBilling extends TableView<BillingRepresentation> implement
 
         @Override
         public TableCell<BillingRepresentation, String> call(TableColumn<BillingRepresentation, String> param) {
-            return new TableCell<>() {
+            return new TableCell<BillingRepresentation, String>() {
 
                 @Override
                 public void updateItem(String item, boolean empty) {
