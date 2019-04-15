@@ -1,4 +1,4 @@
-# Small Management Program ![](https://travis-ci.org/micheleantonazzi/small_management_program.svg?branch=develop)
+# Small Management Program ![](https://travis-ci.org/micheleantonazzi/small_management_program.svg?branch=master)
 This is a small management program made using Java, AspectJ and JavaFX.
 
 ## Installation
